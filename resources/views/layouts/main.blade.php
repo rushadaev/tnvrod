@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     @vite('resources/css/app.css')
-    @livewireStyles
 </head>
 <body>
 <header class="bg-[#F4F2F2] min-h-200px pt-4 h-full">
@@ -96,6 +95,5 @@
         </div>
     </div>
 </footer>
-@livewireScripts
 </body>
 </html>
