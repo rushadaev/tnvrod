@@ -1,61 +1,43 @@
 @extends('layouts.main')
 @section('title', 'Республиканское общественное движение &quot;Татарстан - новый век&quot; - Новости')
 @section('content')
-    <div class="container max-w-[1250px] mt-8 mx-auto px-4 flex flex-col justify-between">
-        <div class="h-[18px] justify-start items-center gap-[15px] inline-flex">
-            <div class="text-justify text-neutral-600 text-[14px] font-normal">Республиканское общественное движение - «Татарстан — новый век» — «Татарстан —  яңа гасыр»</div>
-            <div class="origin-top-left w-2.5 h-[10px] relative">
-                <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="1.46967" y1="9.46967" x2="6.46967" y2="4.46967" stroke="#4B4A4C" stroke-width="1.5"/>
-                    <line x1="6.46967" y1="5.53033" x2="1.46967" y2="0.53033" stroke="#4B4A4C" stroke-width="1.5"/>
-                </svg>
-            </div>
-            <div class="opacity-60 text-justify text-neutral-600 text-[14px] font-normal">Новости</div>
-        </div>
-    </div>
-
-    <div class="container max-w-[1250px]  mx-auto px-4 flex flex-col justify-between h-full mt-10">
-        <div class="relative grid grid-flow-row md:grid-flow-col">
-            <div class="block">
-                <div class="text-justify text-zinc-700 text-[35px] font-black uppercase tracking-widest mb-5">НОВОСТИ</div>
-                <div class="left-[2px] top-[68px]">
-                    <div class="border-t border-b py-4 border-black">
-                        <div class="grid grid-flow-col justify-start items-center gap-2">
-                            <div class="text-justify text-zinc-700 text-[30px] font-medium uppercase tracking-wider">7</div>
-                            <div class="text-justify text-zinc-700 text-[16px] font-normal tracking-wider">марта 2023 г.</div>
-                        </div>
-                        <div class="text-zinc-700 text-[22px] font-semibold leading-snug mb-5">Поздравление с международным женским днём матерей мобилизованных</div>
-                        <div class="text-zinc-700 text-[16px] font-normal leading-snug">7 марта Председатель Совета Нурлатского территориального отделения Республиканского общественного движения «Татарстан Новый век» -<br/>«Татарстан – Яна гасыр» Ханяфиев Ильнур Харисович совместно с активистами территориального отделения РОД «Татарстан-новый век» поздравили с наступающим Международным женским днем матерей мобилизованных в зону специальной военной операции. Женщинам пожелали крепкого здоровья, хорошего настроения, скорейшего возвращения родных домой.</div>
-                    </div>
-                    <div class="border-b border-t py-4 border-black">
-                        <div class="grid grid-flow-col justify-start items-center gap-2">
-                            <div class="text-justify text-zinc-700 text-[30px] font-medium uppercase tracking-wider">2</div>
-                            <div class="text-justify text-zinc-700 text-[16px] font-normal tracking-wider">февраля 2023 г.</div>
-                        </div>
-                        <div class="text-zinc-700 text-[22px] font-semibold leading-snug mb-5">Завершился финал Республиканского этапа Всероссийских соревнований «Золотая шайба»</div>
-                        <div class="text-zinc-700 text-[16px] font-normal leading-snug">1 марта в Мамадыше завершился финал Республиканского этапа Всероссийских соревнований «Золотая шайба» среди юных хоккеистов 2012-2013 г.р.<br/>Тройке призёров вручили денежные сертификаты в размере от 50 до 125 тысяч рублей. На первом месте мамадышский Олимп, на втором чистопольское "Торнадо" и на третьем казанская команда "Зилант".</div>
-                    </div>
-                </div>
-            </div>
-            <div class="block ml-[40px]">
-                <div class="text-zinc-700 text-[16px] font-medium uppercase leading-snug">Календарь событий</div>
-                <div class="calendar"></div>
-            </div>
-        </div>
-        <div class="w-full flex cursor-pointer justify-center md:justify-end">
-            <div class="w-full mt-5 max-w-[425px] h-[75px] relative">
-                <div class="w-full h-[75px] left-[0] top-[0] relative bg-blue-500 rounded"></div>
-                <div class="w-full absolute top-0 left-0 h-full flex justify-center items-center text-center text-white text-[18px] font-bold uppercase">следующая страница</div>
-                <div class="origin-top-left w-[18.37px] h-[10px] right-[30px] top-[28px] absolute">
-                    <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line y1="-1" x2="13.5771" y2="-1" transform="matrix(0.736474 -0.676465 0.736474 0.676465 2 19)" stroke="white" stroke-width="2"/>
-                        <line y1="-1" x2="13.5771" y2="-1" transform="matrix(-0.736474 -0.676465 0.736474 -0.676465 12 9.81543)" stroke="white" stroke-width="2"/>
+    <div class="container max-w-[1250px] mt-8 mx-auto px-4 flex flex-col justify-between ">
+        <div class="grid grid-flow-row xl:grid-flow-col justify-start items-start gap-[15px]">
+            <div class="grid grid-flow-col justify-start items-center gap-4">
+                <a href="/" class="text-left text-neutral-600 text-[14px] font-normal">Республиканское общественное движение - «Татарстан — новый век» — «Татарстан —  яңа гасыр»</a>
+                <div class="origin-top-left w-2.5 h-[10px] relative">
+                    <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1.46967" y1="9.46967" x2="6.46967" y2="4.46967" stroke="#4B4A4C" stroke-width="1.5"/>
+                        <line x1="6.46967" y1="5.53033" x2="1.46967" y2="0.53033" stroke="#4B4A4C" stroke-width="1.5"/>
                     </svg>
+                </div>
+            </div>
+            <div class="grid grid-flow-col justify-start items-center gap-4">
+                <a href="/news" class="text-left text-neutral-600 text-[14px] font-normal">Новости</a>
+                <div class="origin-top-left w-2.5 h-[10px] relative">
+                    <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1.46967" y1="9.46967" x2="6.46967" y2="4.46967" stroke="#4B4A4C" stroke-width="1.5"/>
+                        <line x1="6.46967" y1="5.53033" x2="1.46967" y2="0.53033" stroke="#4B4A4C" stroke-width="1.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="opacity-60 text-left text-neutral-600 text-[14px] font-normal">Поздравление с международным женским днём матерей </div>
+        </div>
+    </div>
 
+    <div class="container max-w-[1250px] mt-10 mx-auto px-4 flex flex-col justify-between h-full">
+        <div class="relative grid grid-flow-col">
+            <div class="block">
+                <div class="text-zinc-700 text-[35px] font-black uppercase mb-10">Поздравление с международным женским днём матерей мобилизованных</div>
+                <div class="max-w-[809px] relative">
+                    <img class="relative mb-8" src="https://via.placeholder.com/809x466" />
+                    <div class="max-w-[805px] relative text-justify text-gray-700 text-[16px] font-normal leading-normal">7 марта Председатель Совета Нурлатского территориального отделения Республиканского общественного движения «Татарстан Новый век» - «Татарстан – Яна гасыр» Ханяфиев Ильнур Харисович совместно с активистами территориального отделения РОД «Татарстан-новый век» поздравили   с наступающим Международным женским днем матерей мобилизованных в зону специальной военной операции. Женщинам пожелали крепкого здоровья, хорошего настроения, скорейшего возвращения родных домой.</div>
                 </div>
             </div>
         </div>
     </div>
+    <x-lastnews></x-lastnews>
+    <x-photogallery></x-photogallery>
     <script>
         //check the console for date click event
         //Fixed day highlight

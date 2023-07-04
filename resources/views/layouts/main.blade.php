@@ -45,7 +45,7 @@
         </div>
         <div class="mt-4 grid menu grid-flow-row xl:grid-flow-col">
             <a href="#" class="active leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Новости</a>
-            <a href="#" class="leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">О движении</a>
+            <a href="/about" class="leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">О движении</a>
             <a href="#" class="leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Молодежное отделение</a>
             <a href="#" class="leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">структура</a>
             <a href="#" class="leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">документы</a>
@@ -87,7 +87,7 @@
         $images = [1,2,3,4];
         @endphp
         <div class="flex items-center justify-center border-t w-full h-full mt-5 pt-4 pb-4">
-            <div class="flex items-center justify-between w-full max-w-[700px] h-full">
+            <div class="flex flex-wrap gap-5 items-center justify-between w-full max-w-[700px] h-full">
                 @foreach($images as $image)
                 <img src="/images/partner_{{$image}}.png" alt="">
                 @endforeach
