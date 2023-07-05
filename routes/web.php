@@ -39,3 +39,7 @@ Route::get('/about', function () {
 Route::get('/documents/hartiyazemli/', function () {
     return view('documents.hartiyazemli');
 });
+
+Route::get('/documents/history/', function () {
+    return view('documents.history');
+});
