@@ -43,3 +43,12 @@ Route::get('/documents/hartiyazemli/', function () {
 Route::get('/documents/history/', function () {
     return view('documents.history');
 });
+
+
+Route::get('/awards/rodnik/', function () {
+    return view('awards.rodnik');
+});
+
+Route::get('/awards/', function () {
+    return view('awards.index');
+});

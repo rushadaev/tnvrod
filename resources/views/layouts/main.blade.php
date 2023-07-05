@@ -29,7 +29,28 @@
                     </h1>
                 </div>
                 <div class="flex mt-4 lg:mt-0">
-                    <div class="flex rounded justify-center items-center ml-2">
+                    <form action="/search">
+                        <div id="searchbar" class="fixed hidden bg-[#424653] w-full h-[200px] left-0 top-0">
+                            <div class="flex rounded justify-center items-center ml-2 h-full">
+                                <div class="relative w-full max-w-[800px] ">
+                                    <input placeholder="Поиск по сайту..." class="border-b-2 w-full pl-[30px] outline-none text-white h-[40px] text-[16px] font-thin border-white bg-transparent" name="query" />
+                                    <div class="absolute top-[10px] left-0">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8.5" cy="8.5" r="7.65" stroke="white" stroke-width="1.7"/>
+                                            <path d="M19 19L14 14" stroke="white" stroke-width="1.7"/>
+                                        </svg>
+                                    </div>
+                                    <div onclick="document.getElementById('searchbar').classList.add('hidden')" class="absolute right-[10px] top-[10px] cursor-pointer">
+                                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.5977 11.5996L1.19766 1.19961" stroke="white" stroke-width="1.7"/>
+                                            <path d="M11.5977 1.19922L1.19766 11.5992" stroke="white" stroke-width="1.7"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div onclick="document.getElementById('searchbar').classList.remove('hidden')" class="flex cursor-pointer rounded justify-center items-center ml-2">
                             <span class="w-14 h-14 flex justify-center items-center bg-F4F2F2 border border-round-rounded search-container">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="8.5" cy="8.5" r="7.65" stroke="black" stroke-width="1.7"/>
