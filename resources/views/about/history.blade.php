@@ -34,7 +34,7 @@
     </div>
 
     <div class="container max-w-[1250px] mt-8 mx-auto px-4 grid grid-flow-row gap-10">
-        <div class="text-zinc-700 text-[24px] md:text-[35px] font-black uppercase">Доклад Председателя Высшего совета на VIII съезде <br/>Республиканского общественного движения «Татарстан - <br/>новый Век»</div>
+        <div class="text-zinc-700 text-xl md:text-3xl font-black uppercase">Доклад Председателя Высшего совета на VIII съезде <br/>Республиканского общественного движения «Татарстан - <br/>новый Век»</div>
         <div class="text-justify"><span class="text-gray-700 text-[18px] font-bold leading-normal">Отчетный Доклад<br/></span><span class="text-gray-700 text-[18px] font-black leading-normal">Председателя Государственного Совета
    Республики Татарстан, Председателя Высшего<br/>совета
   РОД «ТНВ» – «ТЯГ» Ф.Х. Мухаметшина на

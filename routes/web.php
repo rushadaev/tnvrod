@@ -34,3 +34,8 @@ Route::get('/about/history', function () {
 Route::get('/about', function () {
     return view('about.index');
 });
+
+
+Route::get('/documents/hartiyazemli/', function () {
+    return view('documents.hartiyazemli');
+});
