@@ -25,6 +25,12 @@ Route::get('/article', function () {
     return view('article');
 });
 
+Route::get('/about/home', function () {
+    return view('about.home');
+});
+Route::get('/about/history', function () {
+    return view('about.history');
+});
 Route::get('/about', function () {
-    return view('about');
+    return view('about.index');
 });
