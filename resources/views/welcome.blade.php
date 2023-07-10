@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <x-lastnews></x-lastnews>
+    <x-lastnews :news="$articles[1]->category->articles->sortByDesc('created')->take(4)"></x-lastnews>
     <x-photogallery></x-photogallery>
 
 @endsection
