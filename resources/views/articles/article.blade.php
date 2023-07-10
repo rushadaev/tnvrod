@@ -3,7 +3,7 @@
 @section('content')
     <div class="container max-w-[1250px] mt-8 mx-auto px-4 flex flex-col justify-between ">
         <div class="grid grid-flow-row xl:grid-flow-col justify-start items-start gap-[15px]">
-            <div class="grid grid-flow-col justify-start items-center gap-4">
+            <div class="grid grid-flow-col justify-start items-center gap-4 h-full">
                 <a href="/" class="text-left text-neutral-600 text-[14px] font-normal">Республиканское общественное движение - «Татарстан — новый век» — «Татарстан —  яңа гасыр»</a>
                 <div class="origin-top-left w-2.5 h-[10px] relative">
                     <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +12,7 @@
                     </svg>
                 </div>
             </div>
-            <div class="grid grid-flow-col justify-start items-center gap-4">
+            <div class="grid grid-flow-col justify-start items-center gap-4 h-full">
                 <a href="/content/{{$article->category->alias}}" class="text-left text-neutral-600 text-[14px] font-normal">{{$article->category->title}}</a>
                 <div class="origin-top-left w-2.5 h-[10px] relative">
                     <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,15 +32,29 @@
             <div class="block">
                 <div class="text-zinc-700 text-[35px] font-black uppercase mb-10">{{$article->title}}</div>
                 <div class="max-w-[809px] relative">
-                    <img class="relative mb-8 hidden" src="https://via.placeholder.com/809x466" />
+                    @php
+                        $dom = new DOMDocument();
+                        $dom->loadHTML($article->introtext);
+                        $imgsrc = null;
+                        $images = $dom->getElementsByTagName('img');
+                        if ($images->length > 0) {
+                            $firstImage = $images->item(0);
+                            $src = $firstImage->getAttribute('src');
+                            $imgsrc = $src;
+                        }
+                    @endphp
+                    <img class="relative mb-8" src="{{$imgsrc}}" />
                     <div class="max-w-[805px] relative text-justify text-gray-700 text-[16px] font-normal leading-normal">
-                        {!! str_replace('src="images/', 'src="https://tnvrod.ru/images/', $article->introtext) !!}
+                        {!! $article->introtext !!}
+                        {!! $article->fulltext !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <x-lastnews></x-lastnews>
+    @if(count($article->category->articles->except(['id', $article->id])->sortByDesc('created')->take(4)))
+    <x-lastnews :news="$article->category->articles->except(['id', $article->id])->sortByDesc('created')->take(4)"></x-lastnews>
+    @endif
     <x-photogallery></x-photogallery>
     <script>
         //check the console for date click event

@@ -65,18 +65,18 @@
             </div>
         </div>
         <div class="mt-4 grid menu grid-flow-row xl:grid-flow-col">
-            <a href="#" class="@if(Route::currentRouteName() == 'home')active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Новости</a>
+            <a href="/" class="@if(Route::currentRouteName() == 'home')active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Новости</a>
             <a href="/about" class="@if(Str::of(Route::currentRouteName())->contains('about'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">О движении</a>
             <a href="#" class="@if(Str::of(Route::currentRouteName())->contains('youth'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Молодежное отделение</a>
-            <a href="#" class="@if(Str::of(Route::currentRouteName())->contains('structure'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">структура</a>
-            <a href="#" class="@if(Str::of(Route::currentRouteName())->contains('documents'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">документы</a>
-            <a href="#" class="@if(Str::of(Route::currentRouteName())->contains('media'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">медиа</a>
-            <a href="#" class="@if(Str::of(Route::currentRouteName())->contains('print'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">наши издания</a>
-            <a href="#" class="@if(Str::of(Route::currentRouteName())->contains('awards'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">гранты и конкурсы</a>
+            <a href="/content/o-dvizhenii" class="@if(array_key_exists('category', Route::current()->parameters) && Str::of(Route::current()->parameters['category']->alias)->contains('o-dvizhenii'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">структура</a>
+            <a href="/content/normativno-pravovye-dokumenty" class="@if(array_key_exists('category', Route::current()->parameters) && Str::of(Route::current()->parameters['category']->alias)->contains('normativno-pravovye-dokumenty'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">документы</a>
+            <a href="/content/media" class="@if(array_key_exists('category', Route::current()->parameters) && Str::of(Route::current()->parameters['category']->alias)->contains('media'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">медиа</a>
+            <a href="/content/publications" class="@if(array_key_exists('category', Route::current()->parameters) && Str::of(Route::current()->parameters['category']->alias)->contains('publications'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Наши издания</a>
+            <a href="/content/granty-i-konkursy" class="@if(array_key_exists('category', Route::current()->parameters) && Str::of(Route::current()->parameters['category']->alias)->contains('granty-i-konkursy'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Гранты и конкурсы</a>
         </div>
     </div>
 </header>
-<main>
+<main class="min-h-[500px]">
     @yield('content')
 </main>
 

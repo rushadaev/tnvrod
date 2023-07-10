@@ -14,9 +14,7 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [ArticleController::class, 'getHome'])->name('home');
 
 Route::get('/news', function () {
     return view('news');

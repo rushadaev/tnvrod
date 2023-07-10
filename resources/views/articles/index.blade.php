@@ -19,15 +19,39 @@
     </div>
 
     <div class="container max-w-[1250px] mt-10 mx-auto grid grid-flow-row md:grid-cols-4 px-4 w-full justify-start gap-5 h-full">
-        @foreach($category->articles as $article)
-        <div class="max-h-[99.08px] w-full h-full relative">
-            <a href="/articles/{{$article->id}}" >
-            <div class="bg-zinc-100 hover:bg-blue-500  hover:text-white px-5 pt-5 pb-3 min-h-[90px] text-zinc-700 text-[14px] font-medium leading-tight">
-                {{$article->title}}
+        @if($category->alias == 'media')
+            <div class="flex lg:flex-row flex-col gap-5 items-center justify-between">
+                <a href="#" class="w-[360px] w-full h-full min-h-[337px] bg-cover bg-center grid grid-rows-[200px_minmax(100px,_1fr)]">
+                    <div class="h-full max-h-[200px] bg-[#c1c1c1]">
+                    </div>
+                    <div class="p-4 bg-white h-full border-rounded flex flex-col min-h-[200px] justify-between">
+                        <h2 class="text-[18px] text-[#4F525F]">Раздел находится в разработке</h2>
+                        <p class="text-[16px] text-[#88888A]">10 июля 2023 г.</p>
+                    </div>
+                </a>
+                @foreach($category->articles as $article)
+                    <a href="/articles/{{$article->id}}" class="w-[360px] w-full h-full min-h-[337px] bg-cover bg-center grid grid-rows-[200px_minmax(100px,_1fr)]">
+                        <div class="h-full max-h-[200px] bg-[#c1c1c1]">
+                            <img class="relative object-cover object-top w-full h-full" src="{{$article->image}}" />
+                        </div>
+                        <div class="p-4 bg-white h-full border-rounded flex flex-col min-h-[200px] justify-between">
+                            <h2 class="text-[18px] text-[#4F525F]">{{$article->title}}</h2>
+                            <p class="text-[16px] text-[#88888A]">{{$article->created}}</p>
+                        </div>
+                    </a>
+                @endforeach
             </div>
-            </a>
-        </div>
-        @endforeach
+        @else
+            @foreach($category->articles as $article)
+            <div class="max-h-[99.08px] w-full h-full relative">
+                <a href="/articles/{{$article->id}}" >
+                <div class="bg-zinc-100 hover:bg-blue-500  hover:text-white px-5 pt-5 pb-3 min-h-[90px] text-zinc-700 text-[14px] font-medium leading-tight">
+                    {{$article->title}}
+                </div>
+                </a>
+            </div>
+            @endforeach
+        @endif
     </div>
 
 
