@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Республиканское общественное движение &quot;Татарстан - новый век&quot; - О движении')
+@section('title', 'Республиканское общественное движение &quot;Татарстан - новый век&quot; - Структура')
 @section('content')
     <div class="container max-w-[1250px] mt-8 mx-auto px-4 flex flex-col justify-between ">
         <div class="grid grid-flow-row xl:grid-flow-col justify-start items-start gap-[15px]">
@@ -13,31 +13,37 @@
                 </div>
             </div>
             <div class="grid grid-flow-col justify-start items-center gap-4">
-                <a href="/about" class="opacity-60 text-left text-neutral-600 text-[14px] font-normal">О движении</a>
+                <a href="/structure" class="opacity-60 text-left text-neutral-600 text-[14px] font-normal">Структура</a>
             </div>
         </div>
     </div>
     @php
     $pages = collect([
         [
-            "title" => "Главная ",
-            "link" => "/about/home"
+            "title" => "О хартии",
+            "link" => "/documents/hartiyazemli"
         ],
         [
-            "title" => "История Республиканского общественного движения «Татарстан – новый век»",
-            "link" => "/about/history"
+            "title" => "Устав Республиканского общественного движения «Татарстан – новый век» ...",
+            "link" => "/documents/terms"
         ],
         [
-            "title" => "Гимн Республиканского общественного движения «Татарстан – новый век»",
-            "link" => "/about/anthem"
+            "title" => "Программа Республиканского общественного движения «Татарстан – новый век» ...",
+            "link" => "/documents/program"
         ],
         [
-            "title" => "Доклад Председателя Высшего совета на VIII съезде",
-            "link" => "/about/report"
+            "title" => "История Хартии Земли",
+            "link" => "/documents/history"
+        ],
+        [
+            "title" => "Текст Декларации «Хартия Земли»",
+            "link" => "/documents/declaration"
+        ],
+        [
+            "title" => "Образцы отчетных документов",
+            "link" => "/documents/templates"
         ]
         ]);
     @endphp
     <x-category :pages="$pages"></x-category>
-
-
 @endsection
