@@ -128,7 +128,7 @@
 
         <div class="mt-4 grid grid-flow-row md:grid-flow-col justify-between">
             <div class="max-w-[370px] w-full h-[75px] bg-gray-700 rounded">
-                <div class="grid grid-flow-col justify-start items-center h-full px-8 gap-8 cursor-pointer">
+                <a href="/about/anthem" class="grid grid-flow-col justify-start items-center h-full px-8 gap-8 cursor-pointer">
                     <div>
                         <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line y1="-1" x2="13.5771" y2="-1" transform="matrix(-0.736474 0.676465 -0.736474 -0.676465 9.99878 0)" stroke="white" stroke-width="2"/>
@@ -136,10 +136,10 @@
                         </svg>
                     </div>
                     <div class="text-center text-white text-[18px] font-bold uppercase">Гимн Республикан...</div>
-                </div>
+                </a>
             </div>
             <div class="max-w-[370px] w-full h-[75px] bg-gray-700 rounded">
-                <div class="grid grid-flow-col justify-start items-center h-full px-8 gap-8 cursor-pointer">
+                <a href="/about/history" class="grid grid-flow-col justify-start items-center h-full px-8 gap-8 cursor-pointer">
                     <div class="text-center text-white text-[18px] font-bold uppercase">история Республикан...</div>
                     <div>
                         <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,7 +147,7 @@
                             <line y1="-1" x2="13.5771" y2="-1" transform="matrix(-0.736474 -0.676465 0.736474 -0.676465 11.9993 9.81567)" stroke="white" stroke-width="2"/>
                         </svg>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
