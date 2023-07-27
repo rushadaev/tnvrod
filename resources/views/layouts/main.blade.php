@@ -70,9 +70,9 @@
             <a href="/youth" class="@if(Str::of(Route::currentRouteName()) == 'youth.index')active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Молодежное отделение</a>
             <a href="/structure" class="@if(Str::of(Route::currentRouteName())->contains('structure'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Cтруктура</a>
             <a href="/documents" class="@if(Str::of(Route::currentRouteName())->contains('documents'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Документы</a>
-            <a href="/content/media" class="@if(array_key_exists('category', Route::current()->parameters) && Str::of(Route::current()->parameters['category']->alias)->contains('media'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Медиа</a>
-            <a href="/content/publications" class="@if(array_key_exists('category', Route::current()->parameters) && Str::of(Route::current()->parameters['category']->alias)->contains('publications'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Наши издания</a>
-            <a href="/content/granty-i-konkursy" class="@if(array_key_exists('category', Route::current()->parameters) && Str::of(Route::current()->parameters['category']->alias)->contains('granty-i-konkursy'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Гранты и конкурсы</a>
+            <a href="/media" class="@if(Str::of(Route::currentRouteName())->contains('media'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Медиа</a>
+            <a href="/publications" class="@if(Str::of(Route::currentRouteName())->contains('publications'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Наши издания</a>
+            <a href="/grants" class="@if(Str::of(Route::currentRouteName())->contains('grants'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Гранты и конкурсы</a>
         </div>
     </div>
 </header>

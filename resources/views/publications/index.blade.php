@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Республиканское общественное движение &quot;Татарстан - новый век&quot; - Документы')
+@section('title', 'Республиканское общественное движение &quot;Татарстан - новый век&quot; - Структура')
 @section('content')
     <div class="container max-w-[1250px] mt-8 mx-auto px-4 flex flex-col justify-between ">
         <div class="grid grid-flow-row xl:grid-flow-col justify-start items-start gap-[15px]">
@@ -13,37 +13,25 @@
                 </div>
             </div>
             <div class="grid grid-flow-col justify-start items-center gap-4">
-                <a href="/documents" class="opacity-60 text-left text-neutral-600 text-[14px] font-normal">Документы</a>
+                <a href="/publications" class="opacity-60 text-left text-neutral-600 text-[14px] font-normal">Наши издания</a>
             </div>
         </div>
     </div>
     @php
     $pages = collect([
         [
-            "title" => "О хартии",
-            "link" => "/documents/hartiyazemli"
+            "title" => "Публикационные материалы",
+            "link" => "/publications/materials"
         ],
         [
-            "title" => "Устав Республиканского общественного движения «Татарстан – новый век» ...",
-            "link" => "/documents/terms"
+            "title" => "Профориентационные материалы",
+            "link" => "/publications/career"
         ],
         [
-            "title" => "Программа Республиканского общественного движения «Татарстан – новый век» ...",
-            "link" => "/documents/program"
-        ],
-        [
-            "title" => "История Хартии Земли",
-            "link" => "/documents/history"
-        ],
-        [
-            "title" => "Текст Декларации «Хартия Земли»",
-            "link" => "/documents/declaration"
-        ],
-        [
-            "title" => "Центр Некоммерческой организации",
-            "link" => "/documents/nonprofit"
+            "title" => "Онлайн лекции",
+            "link" => "/publications/lectures"
         ]
-        ]);
+    ]);
     @endphp
     <x-category :pages="$pages"></x-category>
 @endsection

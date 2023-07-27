@@ -11,6 +11,8 @@
                 @if($file['type'] == 'custom')
                     @if($file['icon'] == 'PDF')
                         <div class="relative text-[#F44254] text-[8px] md:text-[18px]">{{$file['icon']}}</div>
+                    @elseif($file['icon'] == 'ZIP')
+                        <div class="relative text-[#C10013] text-[8px] md:text-[18px]">{{$file['icon']}}</div>
                     @else
                         <div class="relative text-[#4884F1] text-[8px] md:text-[18px]">{{$file['icon']}}</div>
                     @endif

@@ -13,71 +13,88 @@
                 </div>
             </div>
             <div class="grid grid-flow-col justify-start items-center gap-4">
-                <a href="/documents" class="opacity-60 text-left text-neutral-600 text-[14px] font-normal">Образцы отчетных документов</a>
+                <a href="/publications" class="text-left text-neutral-600 text-[14px] font-normal">Наши издания</a>
+                <div class="origin-top-left w-2.5 h-[10px] relative">
+                    <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1.46967" y1="9.46967" x2="6.46967" y2="4.46967" stroke="#4B4A4C" stroke-width="1.5"/>
+                        <line x1="6.46967" y1="5.53033" x2="1.46967" y2="0.53033" stroke="#4B4A4C" stroke-width="1.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="grid grid-flow-col justify-start items-center gap-4">
+                <a href="/publications/career" class="opacity-60 text-left text-neutral-600 text-[14px] font-normal">Профориентационные материалы</a>
             </div>
         </div>
     </div>
 
     <div class="container max-w-[1250px] mt-8 mx-auto px-4 grid grid-flow-row gap-10">
-        <div class="text-zinc-700 text-xl md:text-3xl font-black uppercase">Образцы отчетных документов</div>
+        <div class="text-zinc-700 text-xl md:text-3xl font-black uppercase">Профориентационные материалы</div>
         @php
         $files = collect([
             [
                 'type' => 'custom',
-                'icon' => 'DOCX',
-                'title' => 'Заявление в ПФР-2',
-                'url' => 'DOCX, 34.0 Кб',
+                'icon' => 'PDF',
+                'title' => 'Бланки для команд',
+                'url' => 'PDF, 34.0 Кб',
                 'order' => 1,
                 'widget_id' => 1,
             ],
             [
                 'type' => 'custom',
                 'icon' => 'PDF',
-                'title' => 'Статистический отчет 1-НКО',
+                'title' => 'Камнева',
                 'url' => 'PDF, 34.0 Кб',
-                'order' => 2,
+                'order' => 1,
                 'widget_id' => 1,
             ],
             [
                 'type' => 'custom',
-                'icon' => 'DOCX',
-                'title' => 'Заявление в ФСС',
-                'url' => 'DOCX, 34.0 Кб',
-                'order' => 3,
+                'icon' => 'PDF',
+                'title' => 'Клевцова',
+                'url' => 'PDF, 34.0 Кб',
+                'order' => 1,
                 'widget_id' => 1,
             ],
             [
                 'type' => 'custom',
-                'icon' => 'DOCX',
-                'title' => 'Форма 4. Расчет по начисленным социальным взносам',
-                'url' => 'DOCX, 34.0 Кб',
-                'order' => 4,
+                'icon' => 'PDF',
+                'title' => 'Презентация к игре',
+                'url' => 'PDF, 34.0 Кб',
+                'order' => 1,
                 'widget_id' => 1,
             ],
             [
                 'type' => 'custom',
-                'icon' => 'DOCX',
-                'title' => 'Справка-подтверждение основ. вида эконом. деятельности',
-                'url' => 'DOCX, 34.0 Кб',
-                'order' => 5,
+                'icon' => 'PDF',
+                'title' => 'Тимофеева',
+                'url' => 'PDF, 34.0 Кб',
+                'order' => 1,
                 'widget_id' => 1,
             ],
             [
                 'type' => 'custom',
-                'icon' => 'DOCX',
-                'title' => 'Образцы в налоговую службу',
-                'url' => 'DOCX, 34.0 Кб',
-                'order' => 6,
+                'icon' => 'PDF',
+                'title' => 'Тимофеева_Карточки',
+                'url' => 'PDF, 34.0 Кб',
+                'order' => 1,
                 'widget_id' => 1,
             ],
             [
-                'type' => 'yandex',
-                'icon' => '/youth/icons/disk.png',
-                'title' => 'Запись видео-конференции от 28.02.2019',
-                'url' => 'https://disk.yandex.ru/d/pYDfnUby9sDvhw%20',
-                'order' => 7,
+                'type' => 'custom',
+                'icon' => 'PDF',
+                'title' => 'Хочу им стать',
+                'url' => 'PDF, 34.0 Кб',
+                'order' => 1,
                 'widget_id' => 1,
             ],
+            [
+                'type' => 'custom',
+                'icon' => 'PDF',
+                'title' => 'Инструкция к игре (3)',
+                'url' => 'PDF, 34.0 Кб',
+                'order' => 1,
+                'widget_id' => 1,
+            ]
         ]);
         @endphp
         <div class="text-justify">

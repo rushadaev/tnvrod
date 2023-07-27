@@ -76,9 +76,31 @@ Route::get('/youth', function () {
     return view('youth.index');
 })->name('youth.index');
 
-Route::get('/documents/templates', function () {
-    return view('documents.templates');
-})->name('documents.templates');
+Route::get('/media', function () {
+    return view('media.index');
+})->name('media.index');
+
+Route::get('/grants', function () {
+    return view('grants.index');
+})->name('grants.index');
+
+Route::get('/publications/materials', function () {
+    return view('publications.materials');
+})->name('publications.materials');
+Route::get('/publications/career', function () {
+    return view('publications.career');
+})->name('publications.career');
+Route::get('/publications/lectures', function () {
+    return view('publications.lectures');
+})->name('publications.lectures');
+
+Route::get('/publications', function () {
+    return view('publications.index');
+})->name('publications.index');
+
+Route::get('/documents/nonprofit', function () {
+    return view('documents.nonprofit');
+})->name('documents.nonprofit');
 Route::get('/documents/declaration', function () {
     return view('documents.declaration');
 })->name('documents.declaration');
