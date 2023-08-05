@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Models\Page;
+use App\Models\Section;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,99 +27,218 @@ Route::get('/article', function () {
 })->name('article');
 
 Route::get('/about/home', function () {
+    $body = Page::where('slug', '/home/slug')->first();
+    $output = Blade::render(str_replace(
+        '\=\&gt;', '=>', $body->body
+    ));
+    return $output;
     return view('about.home');
 })->name('about.home');
 Route::get('/about/report', function () {
+    $body = Page::where('slug', '/about/report')->first();
+    $output = Blade::render(str_replace(
+        '\=\&gt;', '=>', $body->body
+    ));
+    return $output;
     return view('about.report');
 })->name('about.report');
 Route::get('/about/anthem', function () {
+    $body = Page::where('slug', '/about/anthem')->first();
+    $output = Blade::render(str_replace(
+        '\=\&gt;', '=>', $body->body
+    ));
+    return $output;
     return view('about.anthem');
 })->name('about.anthem');
 Route::get('/about/history', function () {
     return view('about.history');
 })->name('about.history');
+
 Route::get('/about', function () {
-    return view('about.index');
+    $body = Section::where('slug', '/about')->first();
+    $output = Blade::render(str_replace(
+        '\=\&gt;', '=>', $body->body
+    ));
+    return $output;
+    return view (['template' => $output], ['body' => $body]);
 })->name('about.index');
 
+
 Route::get('/structure/participants', function () {
-    return view('structure.participants');
+    $body = Page::where('slug', '/structure/participants')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.participants');
 Route::get('/structure/deputy', function () {
-    return view('structure.deputy');
+    $body = Page::where('slug', '/structure/deputy')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.deputy');
 Route::get('/structure/zonal', function () {
-    return view('structure.zonal');
+    $body = Page::where('slug', '/structure/zonal')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.zonal');
 Route::get('/structure/chairman', function () {
-    return view('structure.chairman');
+    $body = Page::where('slug', '/structure/chairman')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.chairman');
 Route::get('/structure/deputy-group', function () {
-    return view('structure.deputy-group');
+    $body = Page::where('slug', '/structure/deputy-group')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.deputy-group');
 Route::get('/structure/executive', function () {
-    return view('structure.executive');
+    $body = Page::where('slug', '/structure/executive')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.executive');
 Route::get('/structure/presidium', function () {
-    return view('structure.presidium');
+    $body = Page::where('slug', '/structure/presidium')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.presidium');
 Route::get('/structure/council', function () {
-    return view('structure.council');
+    $body = Page::where('slug', '/structure/council')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.council');
+
 Route::get('/structure/youth-leaders', function () {
-    return view('structure.youth-leaders');
+    $body = Page::where('slug', '/structure/youth-leaders')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.youth-leaders');
 Route::get('/structure', function () {
-    return view('structure.index');
+    $body = Section::where('slug', '/structure')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('structure.index');
 
 
 Route::get('/youth', function () {
-    return view('youth.index');
+    $body = Page::where('slug', '/youth')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('youth.index');
 
 Route::get('/media', function () {
-    return view('media.index');
+    $body = Section::where('slug', '/media')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('media.index');
 
 Route::get('/grants', function () {
-    return view('grants.index');
+    $body = Section::where('slug', '/grants')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('grants.index');
 
 Route::get('/publications/materials', function () {
-    return view('publications.materials');
+    $body = Page::where('slug', '/materials')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('publications.materials');
 Route::get('/publications/career', function () {
-    return view('publications.career');
+    $body = Page::where('slug', '/career')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('publications.career');
 Route::get('/publications/lectures', function () {
-    return view('publications.lectures');
+    $body = Page::where('slug', '/lectures')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('publications.lectures');
 
 Route::get('/publications', function () {
-    return view('publications.index');
+    $body = Section::where('slug', '/publications')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('publications.index');
 
 Route::get('/documents/nonprofit', function () {
-    return view('documents.nonprofit');
+    $body = Page::where('slug', '/nonprofit')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('documents.nonprofit');
 Route::get('/documents/declaration', function () {
-    return view('documents.declaration');
+    $body = Page::where('slug', '/declaration')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('documents.declaration');
 Route::get('/documents/program', function () {
-    return view('documents.program');
+    $body = Page::where('slug', '/program')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('documents.program');
 Route::get('/documents/terms', function () {
-    return view('documents.terms');
+    $body = Page::where('slug', '/terms')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('documents.terms');
 Route::get('/documents/hartiyazemli/', function () {
-    return view('documents.hartiyazemli');
+    $body = Page::where('slug', '/hartiyazemli')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('documents.hartiyazemli');
 Route::get('/documents/history/', function () {
-    return view('documents.history');
+    $body = Page::where('slug', '/history')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('documents.history');
 Route::get('/documents/', function () {
-    return view('documents.index');
+    $body = Section::where('slug', '/documents')->first();
+    $output = Blade::render(str_replace(
+        '=&gt;', '=>', $body->body
+    ));
+    return $output;
 })->name('documents.index');
 
 
