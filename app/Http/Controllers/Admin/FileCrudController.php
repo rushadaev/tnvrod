@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\FileRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class ArticleCrudController
+ * Class FileCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class ArticleCrudController extends CrudController
+class FileCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class ArticleCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Article::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/article');
-        CRUD::setEntityNameStrings('article', 'articles');
+        CRUD::setModel(\App\Models\File::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/file');
+        CRUD::setEntityNameStrings('file', 'files');
     }
 
     /**
@@ -42,8 +42,7 @@ class ArticleCrudController extends CrudController
 
         CRUD::column('id');
         CRUD::column('title');
-        CRUD::column('alias');
-        CRUD::column('catid');
+        CRUD::column('file');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -60,28 +59,13 @@ class ArticleCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(ArticleRequest::class);
+        CRUD::setValidation([
+            // 'name' => 'required|min:2',
+        ]);
 
-        CRUD::field('title');
-        CRUD::field('alias');
-        CRUD::field('catid');
-        CRUD::field('introtext')->type('summernote');
-        CRUD::field('fulltext')->type('summernote');
-        CRUD::field('state');
+        CRUD::column('title');
+        CRUD::column('file');
 
-        //CRUD::field('catid');
-        CRUD::field('created');
-        CRUD::field('publish_up');
-//        CRUD::field('images');
-//        CRUD::field('urls');
-        //CRUD::field('attribs');
-        CRUD::field('version');
-        //CRUD::field('parentid');
-        //CRUD::field('ordering');
-        CRUD::field('access');
-        CRUD::field('hits');
-        CRUD::field('featured');
-        CRUD::field('language');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
