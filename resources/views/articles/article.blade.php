@@ -43,9 +43,8 @@
                             $imgsrc = $src;
                         }
                     @endphp
-                    <img class="relative mb-8" src="{{$imgsrc}}" />
                     <div class="max-w-[805px] relative text-justify text-gray-700 text-[16px] font-normal leading-normal">
-                        {!! $article->introtext !!}
+                        {!! CustomHelper::shortenString($article->introtext) !!}
                         {!! $article->fulltext !!}
                     </div>
                 </div>

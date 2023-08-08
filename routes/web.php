@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Models\Page;
@@ -19,8 +20,12 @@ use App\Models\Section;
 Route::get('/', [ArticleController::class, 'getHome'])->name('home');
 
 Route::get('/news', function () {
-    return view('news');
+    $articles = Article::orderByDesc('created')->paginate(10);
+
+    return view('news', ['articles' => $articles]);
 })->name('news');
+
+Route::get('/search', [ArticleController::class, 'search'])->name('search');
 
 Route::get('/article', function () {
     return view('article');

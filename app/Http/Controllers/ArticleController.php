@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\Page;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Blade;
 
 class ArticleController extends Controller
 {
@@ -20,12 +18,14 @@ class ArticleController extends Controller
 
     public function getHome(Request $request){
         $articles = Article::orderByDesc('created')->limit(10)->get();
-
-        $body = Page::where('slug', '/')->first();
-        $output = Blade::render($body->body, ['articles' => $articles]);
-        return $output;
-
         return view('welcome', ['articles' => $articles]);
 
+    }
+
+    public function search(Request $request){
+
+        $articles = Article::where('title', 'LIKE', '%'.$request->get('query').'%')->take(10)->orderByDesc('created')->get();
+
+        return view('search', ['articles' => $articles]);
     }
 }

@@ -33,7 +33,9 @@
                         <div id="searchbar" class="fixed hidden bg-[#424653] w-full h-[200px] left-0 top-0">
                             <div class="flex rounded justify-center items-center ml-2 h-full">
                                 <div class="relative w-full max-w-[800px] ">
-                                    <input placeholder="Поиск по сайту..." class="border-b-2 w-full pl-[30px] outline-none text-white h-[40px] text-[16px] font-thin border-white bg-transparent" name="query" />
+                                    <form method="get" action="/search" >
+                                        <input placeholder="Поиск по сайту..." class="border-b-2 w-full pl-[30px] outline-none text-white h-[40px] text-[16px] font-thin border-white bg-transparent" name="query" />
+                                    </form>
                                     <div class="absolute top-[10px] left-0">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="8.5" cy="8.5" r="7.65" stroke="white" stroke-width="1.7"/>

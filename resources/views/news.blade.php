@@ -19,22 +19,16 @@
             <div class="block">
                 <div class="text-justify text-zinc-700 text-[35px] font-black uppercase tracking-widest mb-5">НОВОСТИ</div>
                 <div class="left-[2px] top-[68px]">
+                    @foreach($articles as $article)
                     <div class="border-t border-b py-4 border-black">
                         <div class="grid grid-flow-col justify-start items-center gap-2">
-                            <div class="text-justify text-zinc-700 text-[30px] font-medium uppercase tracking-wider">7</div>
-                            <div class="text-justify text-zinc-700 text-[16px] font-normal tracking-wider">марта 2023 г.</div>
+                            <div class="text-justify text-zinc-700 text-[30px] font-medium uppercase tracking-wider">{{Carbon\Carbon::make($article->created)->day}}</div>
+                            <div class="text-justify text-zinc-700 text-[16px] font-normal tracking-wider">/ {{Carbon\Carbon::make($article->created)->month}} {{Carbon\Carbon::make($article->created)->year}} г.</div>
                         </div>
-                        <div class="text-zinc-700 text-[22px] font-semibold leading-snug mb-5">Поздравление с международным женским днём матерей мобилизованных</div>
-                        <div class="text-zinc-700 text-[16px] font-normal leading-snug">7 марта Председатель Совета Нурлатского территориального отделения Республиканского общественного движения «Татарстан Новый век» -<br/>«Татарстан – Яна гасыр» Ханяфиев Ильнур Харисович совместно с активистами территориального отделения РОД «Татарстан-новый век» поздравили с наступающим Международным женским днем матерей мобилизованных в зону специальной военной операции. Женщинам пожелали крепкого здоровья, хорошего настроения, скорейшего возвращения родных домой.</div>
+                        <a href="/articles/{{$article->id}}" class="text-zinc-700 text-[22px] font-semibold leading-snug mb-5">{{$article->title}}</a>
+                        <div class="text-zinc-700 text-[16px] font-normal leading-snug">{!! CustomHelper::shortenString($article->fulltext) !!}</div>
                     </div>
-                    <div class="border-b border-t py-4 border-black">
-                        <div class="grid grid-flow-col justify-start items-center gap-2">
-                            <div class="text-justify text-zinc-700 text-[30px] font-medium uppercase tracking-wider">2</div>
-                            <div class="text-justify text-zinc-700 text-[16px] font-normal tracking-wider">февраля 2023 г.</div>
-                        </div>
-                        <div class="text-zinc-700 text-[22px] font-semibold leading-snug mb-5">Завершился финал Республиканского этапа Всероссийских соревнований «Золотая шайба»</div>
-                        <div class="text-zinc-700 text-[16px] font-normal leading-snug">1 марта в Мамадыше завершился финал Республиканского этапа Всероссийских соревнований «Золотая шайба» среди юных хоккеистов 2012-2013 г.р.<br/>Тройке призёров вручили денежные сертификаты в размере от 50 до 125 тысяч рублей. На первом месте мамадышский Олимп, на втором чистопольское "Торнадо" и на третьем казанская команда "Зилант".</div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="block ml-[40px]">

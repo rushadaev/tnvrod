@@ -39,6 +39,7 @@ class ArticleCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+
         CRUD::column('id');
         CRUD::column('title');
         CRUD::column('alias');
