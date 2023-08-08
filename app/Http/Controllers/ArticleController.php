@@ -21,4 +21,11 @@ class ArticleController extends Controller
         return view('welcome', ['articles' => $articles]);
 
     }
+
+    public function search(Request $request){
+
+        $articles = Article::where('title', 'LIKE', '%'.$request->get('query').'%')->take(10)->orderByDesc('created')->get();
+
+        return view('search', ['articles' => $articles]);
+    }
 }

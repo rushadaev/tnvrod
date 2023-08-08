@@ -25,6 +25,8 @@ Route::get('/news', function () {
     return view('news', ['articles' => $articles]);
 })->name('news');
 
+Route::get('/search', [ArticleController::class, 'search'])->name('search');
+
 Route::get('/article', function () {
     return view('article');
 })->name('article');
