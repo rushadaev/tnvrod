@@ -29,7 +29,7 @@ class FileCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\File::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/file');
-        CRUD::setEntityNameStrings('file', 'files');
+        CRUD::setEntityNameStrings('файл', 'файлы');
     }
 
     /**

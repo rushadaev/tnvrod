@@ -28,7 +28,7 @@ class SectionCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Section::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/section');
-        CRUD::setEntityNameStrings('section', 'sections');
+        CRUD::setEntityNameStrings('секцию', 'секции');
     }
 
     /**

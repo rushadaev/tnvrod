@@ -1,6 +1,6 @@
-<div class="grid grid-cols-2 gap-10">
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
     @foreach($persons as $person)
-    <div class="grid grid-flow-col gap-5 max-w-[584px]">
+    <div class="grid auto-cols-min xl:auto-cols-auto xl:grid-flow-col gap-5 max-w-[584px]">
         <div class="w-[200px] h-[250px] relative block rounded bg-[#c1c1c1]">
             @if($person['image'])
                 <img class="w-full h-full object-cover rounded" alt="{{$person['name'].' '.$person['lastname']}}" src="{{$person['image']}}" />

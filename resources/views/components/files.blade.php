@@ -20,7 +20,7 @@
             @endif
         </div>
     </div>
-    <div class="grid grid-rows-auto gap-1 w-full h-full">
+    <div class="grid grid-rows-auto gap-1 w-full">
         <div class="text-[#343847] text-[18px] text-left">
             <a class="text-[#343847] text-[14px] md:text-[18px]" href="{{$file['url']}}">
                 {{$file['title']}}

@@ -28,7 +28,7 @@ class ArticleCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Article::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/article');
-        CRUD::setEntityNameStrings('article', 'articles');
+        CRUD::setEntityNameStrings('статью', 'статьи');
     }
 
     /**
