@@ -22,4 +22,5 @@ Route::group([
     Route::crud('section', 'SectionCrudController');
     Route::crud('page', 'PageCrudController');
     Route::crud('file', 'FileCrudController');
+    Route::crud('cardblock', 'CardblockCrudController');
 }); // this should be the absolute last line of this file

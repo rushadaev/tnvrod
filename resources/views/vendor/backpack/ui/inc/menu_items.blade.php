@@ -7,3 +7,4 @@
 <x-backpack::menu-item title="Sections" icon="la la-question" :link="backpack_url('section')" />
 <x-backpack::menu-item title="Pages" icon="la la-question" :link="backpack_url('page')" />
 <x-backpack::menu-item title="Files" icon="la la-question" :link="backpack_url('file')" />
+<x-backpack::menu-item title="Cardblocks" icon="la la-question" :link="backpack_url('cardblock')" />

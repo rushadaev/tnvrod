@@ -27,47 +27,16 @@
         </div>
     </div>
     <div class="container max-w-[1250px] mt-8 mx-auto px-4 grid grid-flow-row gap-10">
+
         <div class="text-zinc-700 text-xl md:text-3xl font-black uppercase">Коллективные Участники Движения ТНВ</div>
-        @php
-            $persons = collect([
-                [
-                    "image" => "",
-                    "lastname" => "Мухаметшин",
-                    "name" => "Фарид Хайруллович",
-                    "achievements" => [
-                        "Председатель Высшего совета Республиканского общественного движения «Татарстан – новый век»",
-                        "Председатель Государственного совета Республики Татарстан "
-                    ]
-                ],
-                [
-                    "image" => "",
-                    "lastname" => "Мухаметшин",
-                    "name" => "Фарид Хайруллович",
-                    "achievements" => [
-                        "Председатель Высшего совета Республиканского общественного движения «Татарстан – новый век»",
-                        "Председатель Государственного совета Республики Татарстан "
-                    ]
-                ],
-                [
-                    "image" => "",
-                    "lastname" => "Мухаметшин",
-                    "name" => "Фарид Хайруллович",
-                    "achievements" => [
-                        "Председатель Высшего совета Республиканского общественного движения «Татарстан – новый век»",
-                        "Председатель Государственного совета Республики Татарстан "
-                    ]
-                ],
-                [
-                    "image" => "",
-                    "lastname" => "Мухаметшин",
-                    "name" => "Фарид Хайруллович",
-                    "achievements" => [
-                        "Председатель Высшего совета Республиканского общественного движения «Татарстан – новый век»",
-                        "Председатель Государственного совета Республики Татарстан "
-                    ]
-                ]
-            ]);
-        @endphp
-        <x-person :persons="$persons"></x-person>
+        <div class="max-w-[805px] text-justify"><span class="text-gray-700 text-base font-normal leading-normal">Участниками Движения могут быть граждане Россий­ской Федерации, проживающие в Республике Татарстан, достиг­шие 18 лет, юридические лица - общественные объединения, при­знающие и поддерживающие Программу и Устав Движения, при­нимающие участие в его работе, за исключением лиц, не имеющих права участвовать в общественных объединениях и за исключени­ем общественных объединений, специально оговоренных законом. (см. п.п 5.2 </span><span class="text-gray-700 text-base font-normal underline leading-normal">"УСТАВ"</span><span class="text-gray-700 text-base font-normal leading-normal">) 123.</span></div>
+        <div class="text-justify"><span class="text-gray-700 text-xl font-bold leading-normal">Ассамблея народов Татарстана<br/></span><span class="text-gray-700 text-lg font-normal leading-normal">Председатель: Фарид Хайруллович Мухаметшин</span></div>
+        <div class="text-justify"><span class="text-gray-700 text-xl font-bold leading-normal">Татарская республиканская организация Всероссийского общества инвалидов<br/></span><span class="text-gray-700 text-lg font-normal leading-normal">Председатель: Ганибаев Рифат Шагитович</span></div>
+        <div class="text-justify"><span class="text-gray-700 text-xl font-bold leading-normal">Совет молодежных организации Республики Татарстан<br/></span><span class="text-gray-700 text-lg font-normal leading-normal">Председатель: Фарид Хайруллович Мухаметшин</span></div>
+        <div class="text-justify"><span class="text-gray-700 text-xl font-bold leading-normal">Общественная молодежная организация объединение "Отечество"<br/></span><span class="text-gray-700 text-lg font-normal leading-normal">Председатель: Коноплев Александр Юрьевич</span></div>
+        <div class="text-justify"><span class="text-gray-700 text-xl font-bold leading-normal">Татарская республиканская общественная организация инвалидов войны в Афгистане<br/></span><span class="text-gray-700 text-lg font-normal leading-normal">Председатель: Кабыш Евгений Григорьевич</span></div>
+        <div class="text-justify"><span class="text-gray-700 text-xl font-bold leading-normal">Союз женщин - предпринимателей Республики Татарстан<br/></span><span class="text-gray-700 text-lg font-normal leading-normal">Председатель: Прусс Нэлла Матвеевна</span></div>
+        <div class="text-justify"><span class="text-gray-700 text-xl font-bold leading-normal">Союз журналистов Татарстана<br/></span><span class="text-gray-700 text-lg font-normal leading-normal">Председатель: Аминов Ильшат Юнусович</span></div>
+
     </div>
 @endsection

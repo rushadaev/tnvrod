@@ -62,10 +62,9 @@ Route::get('/about/history', function () {
 Route::get('/about', function () {
     $body = Section::where('slug', '/about')->first();
     $output = Blade::render(str_replace(
-        '\=\&gt;', '=>', $body->body
+        '\=\&gt;', '=>', $body->body,
     ));
     return $output;
-    return view (['template' => $output], ['body' => $body]);
 })->name('about.index');
 
 
@@ -74,6 +73,7 @@ Route::get('/structure/participants', function () {
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
     ));
+    return view('structure.participants');
     return $output;
 })->name('structure.participants');
 Route::get('/structure/deputy', function () {
@@ -87,42 +87,48 @@ Route::get('/structure/zonal', function () {
     $body = Page::where('slug', '/structure/zonal')->first();
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
-    ));
+    ),
+        ['cardblocks' => $body->cardblocks]);
     return $output;
 })->name('structure.zonal');
 Route::get('/structure/chairman', function () {
     $body = Page::where('slug', '/structure/chairman')->first();
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
-    ));
+    ),
+        ['cardblocks' => $body->cardblocks]);
     return $output;
 })->name('structure.chairman');
 Route::get('/structure/deputy-group', function () {
     $body = Page::where('slug', '/structure/deputy-group')->first();
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
-    ));
+    ),
+        ['cardblocks' => $body->cardblocks]);
     return $output;
 })->name('structure.deputy-group');
 Route::get('/structure/executive', function () {
     $body = Page::where('slug', '/structure/executive')->first();
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
-    ));
+    ),
+        ['cardblocks' => $body->cardblocks]);
     return $output;
 })->name('structure.executive');
 Route::get('/structure/presidium', function () {
     $body = Page::where('slug', '/structure/presidium')->first();
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
-    ));
+    ),
+        ['cardblocks' => $body->cardblocks]);
     return $output;
 })->name('structure.presidium');
 Route::get('/structure/council', function () {
     $body = Page::where('slug', '/structure/council')->first();
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
-    ));
+    ),
+        ['cardblocks' => $body->cardblocks]);
     return $output;
 })->name('structure.council');
 
