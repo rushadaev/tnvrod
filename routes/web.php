@@ -73,8 +73,8 @@ Route::get('/structure/participants', function () {
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
     ));
-    return view('structure.participants');
     return $output;
+    return view('structure.participants');
 })->name('structure.participants');
 Route::get('/structure/deputy', function () {
     $body = Page::where('slug', '/structure/deputy')->first();
@@ -125,9 +125,7 @@ Route::get('/structure/presidium', function () {
 })->name('structure.presidium');
 Route::get('/structure/council', function () {
     $body = Page::where('slug', '/structure/council')->first();
-    $output = Blade::render(str_replace(
-        '=&gt;', '=>', $body->body
-    ),
+    $output = Blade::render($body->body,
         ['cardblocks' => $body->cardblocks]);
     return $output;
 })->name('structure.council');
