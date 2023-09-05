@@ -60,9 +60,10 @@
                                 </svg>
                             </span>
                     </div>
-                    <button class="text-white bg-blue-500 ml-2 h-14 w-44 uppercase">
-                        Задать вопрос
-                    </button>
+                    <a href="mailto:tnvrod@yandex.ru">
+                       <button class="text-white bg-blue-500 ml-2 h-14 w-44 uppercase">
+                        Задать вопрос</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -107,12 +108,12 @@
             </div>
         </div>
         @php
-        $images = [1,2,3,4];
+        $images = \App\Models\Partner::select('image')->pluck('image');
         @endphp
         <div class="flex items-center justify-center border-t w-full h-full mt-5 pt-4 pb-4">
             <div class="flex flex-wrap gap-5 items-center justify-between w-full max-w-[700px] h-full">
                 @foreach($images as $image)
-                <img src="/images/partner_{{$image}}.png" alt="">
+                <img src="/storage/{{$image}}" alt="">
                 @endforeach
             </div>
         </div>

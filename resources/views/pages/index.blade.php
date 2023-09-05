@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Республиканское общественное движение &quot;Татарстан - новый век&quot; - Молодежное отделение')
+@section('title', 'Республиканское общественное движение &quot;Татарстан - новый век&quot; - '.$category->title)
 @section('content')
     <div class="container max-w-[1250px] mt-8 mx-auto px-4 flex flex-col justify-between ">
         <div class="grid grid-flow-row xl:grid-flow-col justify-start items-start gap-[15px]">
@@ -13,20 +13,22 @@
                 </div>
             </div>
             <div class="grid grid-flow-col justify-start items-center gap-4">
-                <a href="/media" class="text-left text-neutral-600 text-[14px] font-normal">Медиа</a>
-
+                <a href="/content/{{$category->alias}}" class="opacity-60 text-left text-neutral-600 text-[14px] font-normal">{{$category->title}}</a>
             </div>
         </div>
     </div>
 
-    <div class="container max-w-[1250px] mt-8 mx-auto px-4 grid grid-flow-row gap-10">
-        <div class="text-zinc-700 text-xl md:text-3xl font-black uppercase">Медиа</div>
+    <div class="container max-w-[1250px] mt-10 mx-auto grid grid-flow-row md:grid-cols-4 px-4 w-full justify-start gap-5 h-full">
 
-        <div class="text-justify">
-            <x-media :media="collect($media)"></x-media>
+        @foreach($category->pages as $article)
+        <div class="max-h-[99.08px] w-full h-full relative">
+            <a href="/pages/{{$article->id}}" >
+            <div class="bg-zinc-100 hover:bg-blue-500  hover:text-white px-5 pt-5 pb-3 min-h-[90px] text-zinc-700 text-[14px] font-medium leading-tight">
+                {{$article->title}}
+            </div>
+            </a>
         </div>
-
-
+        @endforeach
     </div>
 
 

@@ -43,8 +43,8 @@ class ArticleCrudController extends CrudController
         CRUD::column('id');
         CRUD::column('title');
         CRUD::column('alias');
-        CRUD::column('catid');
-
+        CRUD::column('category');
+        CRUD::column('featured');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -64,25 +64,13 @@ class ArticleCrudController extends CrudController
 
         CRUD::field('title');
         CRUD::field('alias');
-        CRUD::field('catid');
+        CRUD::field('category');
         CRUD::field('introtext')->type('summernote');
         CRUD::field('fulltext')->type('summernote');
-        CRUD::field('state');
 
-        //CRUD::field('catid');
-        CRUD::field('created');
         CRUD::field('publish_up');
-//        CRUD::field('images');
-//        CRUD::field('urls');
-        //CRUD::field('attribs');
-        CRUD::field('version');
-        //CRUD::field('parentid');
-        //CRUD::field('ordering');
-        CRUD::field('access');
         CRUD::field('hits');
         CRUD::field('featured');
-        CRUD::field('language');
-
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

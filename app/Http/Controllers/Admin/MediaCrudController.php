@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\PageRequest;
+use App\Http\Requests\MediaRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class PageCrudController
+ * Class MediaCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class PageCrudController extends CrudController
+class MediaCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class PageCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Page::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/page');
-        CRUD::setEntityNameStrings('страницу', 'страницы');
+        CRUD::setModel(\App\Models\Media::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/media');
+        CRUD::setEntityNameStrings('media', 'media');
     }
 
     /**
@@ -39,13 +39,27 @@ class PageCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+
+        CRUD::column('id');
         CRUD::column('title');
-        CRUD::column('excerpt');
-        CRUD::column('embed');
-        CRUD::column('body');
-        CRUD::column('section_id');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
+        CRUD::addColumn([
+            'name' => 'image', // The db column name
+            'label' => "File URL", // Column's label
+            'type' => 'text', // This is a modification of default 'text' column type
+            'limit' => 600, // Limit the number of characters shown
+            // 'disk' => 'public', // in case you need to show files from a different disk
+            'prefix' => '/storage/',
+            'wrapper'   => [
+                // 'element' => 'a', // the element will default to "a" so you can skip it here
+                'href' => function ($crud, $column, $entry, $related_key) {
+                    return '/storage/'.$entry->image;
+                },
+                'target' => '_blank',
+                // 'class' => 'some-class',
+            ],
+        ]);
+        CRUD::column('featured')->label('Включить');
+
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -62,18 +76,18 @@ class PageCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation([
-            // 'name' => 'required|min:2',
-        ]);
+        CRUD::setValidation(MediaRequest::class);
 
-        CRUD::field('title')->label('Заголовок');
-        CRUD::field('excerpt')->label('Краткое описание');
+        CRUD::field('title');
+        CRUD::field('body')->type('summernote');
+        CRUD::field('image')
+            ->type('upload')
+            ->withFiles([
+                'disk' => 'public', // the disk where file will be stored
+                'path' => 'media', // the path inside the disk where file will be stored
+            ]);
+        CRUD::field('featured')->label('Включить');;
 
-        CRUD::field('embed')->type('summernote')->label('Дополнительный материал');
-        CRUD::field('slug')->label('Роут*');
-        CRUD::field('body')->type('summernote')->label('Код страницы*');
-
-        CRUD::field('section');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

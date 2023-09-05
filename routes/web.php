@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Article;
+use App\Models\Media;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Models\Page;
@@ -51,9 +52,9 @@ Route::get('/about/anthem', function () {
     $body = Page::where('slug', '/about/anthem')->first();
     $output = Blade::render(str_replace(
         '\=\&gt;', '=>', $body->body
-    ));
+    ),
+        ['page' => $body]);
     return $output;
-    return view('about.anthem');
 })->name('about.anthem');
 Route::get('/about/history', function () {
     return view('about.history');
@@ -157,11 +158,19 @@ Route::get('/youth', function () {
 })->name('youth.index');
 
 Route::get('/media', function () {
+    return view('media.index', ['media' => Media::get()]);
     $body = Section::where('slug', '/media')->first();
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
     ));
     return $output;
+
+})->name('media.index');
+
+Route::get('/media/{media}', function (Request $request, Media $media) {
+    return view('media.media', ['article' => $media]);
+
+
 })->name('media.index');
 
 Route::get('/grants', function () {
@@ -190,7 +199,8 @@ Route::get('/publications/lectures', function () {
     $body = Page::where('slug', '/lectures')->first();
     $output = Blade::render(str_replace(
         '=&gt;', '=>', $body->body
-    ));
+    ),
+        ['page' => $body]);
     return $output;
 })->name('publications.lectures');
 
@@ -265,3 +275,7 @@ Route::get('/awards/', function () {
 Route::get('/content/{category:alias}', [ArticleController::class, 'getCategory'])->name('article.category.get');
 
 Route::get('/articles/{article}', [ArticleController::class, 'getArticle'])->name('article.get');
+
+Route::get('/sections/{section:slug}', [ArticleController::class, 'getSections'])->name('page.section.get');
+
+Route::get('/pages/{page}', [ArticleController::class, 'getPage'])->name('page.get');

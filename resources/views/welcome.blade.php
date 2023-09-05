@@ -24,7 +24,13 @@
                     <div class="text-white">
                         <span class="text-[16px]">{{$article->publish_up}}</span>
                     </div>
-                    <h2 class="text-[21px] lg:text-[27px] mb-5 lg:mb-0 text-white">{{$article->title}}</h2>
+                    <h2 class="text-[21px] lg:text-[27px] mb-5 lg:mb-0 text-white">
+                        {{Str::of($article['title'])->limit(60)}}
+                        @if(Str::of($article['title'])->length() <= 37)
+                            <br/></br>
+                        @endif
+                    </h2>
+
                     <a class="mt-5" href="/articles/{{$article->id}}">
                         <button class="w-[155px] h-[50px] bg-white text-[#343847] flex items-center justify-center rounded-md">
                             Подробнее
@@ -37,7 +43,7 @@
         </div>
     </div>
 
-    <x-lastnews :news="$articles[1]->category->articles->sortByDesc('created')->take(4)"></x-lastnews>
+    <x-lastnews :news="$last_articles"></x-lastnews>
     <x-photogallery></x-photogallery>
 
 @endsection

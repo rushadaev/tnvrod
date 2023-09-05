@@ -47,7 +47,11 @@
     --calendar-prevnext-date-color: #cccccc
 }
 
-
+.block a{
+    color: #2196f3;
+    border-bottom: 1px solid #03a9f4;
+    padding: 3px;
+}
 .calendar {
     font-family: 'IBM Plex Sans', sans-serif;
     position: relative;

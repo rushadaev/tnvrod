@@ -36,7 +36,7 @@
     <div class="container max-w-[1250px] mt-8 mx-auto px-4 grid grid-flow-row gap-10">
         <div class="text-zinc-700 text-xl md:text-3xl font-black uppercase">Гимн</div>
         <div class="text-justify">
-            <iframe width="100%" height="705" src="https://www.youtube.com/embed/qgEWUPkTsIY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+             {!! $page['embed'] !!}
         </div>
 
         <div class="mt-4 grid grid-flow-row md:grid-flow-col justify-between">

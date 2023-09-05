@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cardblocks', function (Blueprint $table) {
-            $table->id();
-            $table->string('image')->nullable();
-            $table->text('title');
-            $table->text('subtitle');
-            $table->timestamps();
+        Schema::table('pages', function (Blueprint $table) {
+            $table->longText('embed')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cardblocks');
+        Schema::table('pages', function (Blueprint $table) {
+            //
+        });
     }
 };
