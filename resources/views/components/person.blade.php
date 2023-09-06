@@ -6,7 +6,7 @@
                 <img class="w-full h-full object-cover rounded" alt="{{$person['name'].' '.$person['lastname']}}" src="{{$person['image']}}" />
             @endif
         </div>
-        <div class="grid grid-flow-row items-start">
+        <div class="flex-col items-start">
             <div class="text-[21px] font-semibold text-[#3B3E4D]">
                 {!! $person['title'] !!}
             </div>

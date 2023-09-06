@@ -75,7 +75,7 @@
             <a href="/documents" class="@if(Str::of(Route::currentRouteName())->contains('documents'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Документы</a>
             <a href="/media" class="@if(Str::of(Route::currentRouteName())->contains('media'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Медиа</a>
             <a href="/publications" class="@if(Str::of(Route::currentRouteName())->contains('publications'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Наши издания</a>
-            <a href="/grants" class="@if(Str::of(Route::currentRouteName())->contains('grants'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Гранты и конкурсы</a>
+            <a href="/sections/grants" class="@if(Str::of(Route::currentRouteName())->contains('grants'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Гранты и конкурсы</a>
         </div>
     </div>
 </header>
@@ -102,9 +102,11 @@
                 </p>
             </div>
             <div class="flex mt-5 lg:mt-0">
+                <a href="mailto:tnvrod@yandex.ru">
                 <button class="text-white bg-blue-500 ml-2 h-14 w-44 uppercase">
                     Задать вопрос
                 </button>
+                </a>
             </div>
         </div>
         @php
