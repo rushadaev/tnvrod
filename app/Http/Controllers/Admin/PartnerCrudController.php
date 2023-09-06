@@ -76,7 +76,7 @@ class PartnerCrudController extends CrudController
         CRUD::setValidation(PartnerRequest::class);
 
         CRUD::field('title');
-        CRUD::field('body')->type('summernote');
+        CRUD::field('body')->label('Ссылка');
         CRUD::field('image')
             ->type('upload')
             ->withFiles([
