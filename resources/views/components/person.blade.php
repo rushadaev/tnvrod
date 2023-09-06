@@ -3,7 +3,7 @@
     <div class="grid grid-cols-min xl:grid-flow-col auto-cols-[minmax(200px,220px)] gap-5 max-w-[584px]">
         <div class="w-[200px] h-[250px] relative block rounded bg-[#c1c1c1]">
             @if($person['image'])
-                <img class="w-full h-full object-cover rounded" alt="{{$person['name'].' '.$person['lastname']}}" src="{{$person['image']}}" />
+                <img class="w-full h-full object-cover rounded" alt="{{$person['name'].' '.$person['lastname']}}" src="/storage/{{$person['image']}}" />
             @endif
         </div>
         <div class="flex-col items-start">
