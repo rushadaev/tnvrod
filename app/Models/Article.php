@@ -30,6 +30,7 @@ class Article extends Model
             $model->metadata = '{}';
             $model->xreference = '{}';
             $model->language = '{}';
+            $model->hits = '0';
         });
     }
 
