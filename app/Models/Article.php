@@ -29,6 +29,7 @@ class Article extends Model
             $model->metadesc = '{}';
             $model->metadata = '{}';
             $model->xreference = '{}';
+            $model->language = '{}';
         });
     }
 
