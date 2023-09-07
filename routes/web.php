@@ -33,7 +33,7 @@ Route::get('/article', function () {
 })->name('article');
 
 Route::get('/about/home', function () {
-    $body = Page::where('slug', '/home/slug')->first();
+    $body = Page::where('slug', '/home')->first();
     $output = Blade::render(str_replace(
         '\=\&gt;', '=>', $body->body
     ));
