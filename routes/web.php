@@ -19,12 +19,8 @@ use App\Models\Section;
 */
 
 Route::get('/', [ArticleController::class, 'getHome'])->name('home');
+Route::get('/news', [ArticleController::class, 'getNews'])->name('news');
 
-Route::get('/news', function () {
-    $articles = Article::orderByDesc('created')->paginate(10);
-
-    return view('news', ['articles' => $articles]);
-})->name('news');
 
 Route::get('/search', [ArticleController::class, 'search'])->name('search');
 
@@ -64,7 +60,8 @@ Route::get('/about', function () {
     $body = Section::where('slug', '/about')->first();
     $output = Blade::render(str_replace(
         '\=\&gt;', '=>', $body->body,
-    ));
+    ),
+        ['page' => $body]);
     return $output;
 })->name('about.index');
 

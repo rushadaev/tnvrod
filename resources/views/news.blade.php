@@ -124,6 +124,7 @@
                     monthLabel.innerHTML = calendarControl.calMonthName[calendar.getMonth()];
                 },
                 selectDate: function (e) {
+                    window.location.href = `/news?day=${e.target.textContent}&month=${calendar.getMonth()+1}&year=${calendar.getFullYear()}`;
                     console.log(
                         `${e.target.textContent} ${
                             calendarControl.calMonthName[calendar.getMonth()]
@@ -222,11 +223,23 @@
                     let changedMonth = calendar.getMonth() + 1;
                     let currentYear = calendarControl.localDate.getFullYear();
                     let changedYear = calendar.getFullYear();
+                    // Get the current URL
+                    const url = new URL(window.location.href);
+
+                    // Get the query parameters
+                    const params = new URLSearchParams(url.search);
+
+
                     if (
                         currentYear === changedYear &&
                         currentMonth === changedMonth &&
                         document.querySelectorAll(".number-item")
                     ) {
+
+                        let newDay = params.get('day');
+                        document
+                            .querySelectorAll(".number-item")
+                            [newDay - 1].classList.add("calendar-today");
                         document
                             .querySelectorAll(".number-item")
                             [calendar.getDate() - 1].classList.add("calendar-today");
