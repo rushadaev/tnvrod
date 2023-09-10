@@ -237,9 +237,11 @@
                     ) {
 
                         let newDay = params.get('day');
-                        document
-                            .querySelectorAll(".number-item")
-                            [newDay - 1].classList.add("calendar-today");
+                        if(newDay){
+                            document
+                                .querySelectorAll(".number-item")
+                                [newDay - 1].classList.add("calendar-today");
+                        }
                         document
                             .querySelectorAll(".number-item")
                             [calendar.getDate() - 1].classList.add("calendar-today");
