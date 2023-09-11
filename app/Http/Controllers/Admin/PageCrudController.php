@@ -40,12 +40,11 @@ class PageCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('title');
-        CRUD::column('excerpt');
-        CRUD::column('embed');
-        CRUD::column('body');
-        CRUD::column('section_id');
+        CRUD::column('slug')->label('Роут*');
+        CRUD::column('section');
         CRUD::column('created_at');
         CRUD::column('updated_at');
+
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:

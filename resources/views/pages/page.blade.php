@@ -12,6 +12,7 @@
                     </svg>
                 </div>
             </div>
+            @if($article->section)
             <div class="grid grid-flow-col justify-start items-center gap-4 h-full">
                 <a href="/sections/{{$article->section->slug}}" class="text-left text-neutral-600 text-[14px] font-normal">{{$article->section->title}}</a>
                 <div class="origin-top-left w-2.5 h-[10px] relative">
@@ -21,6 +22,7 @@
                     </svg>
                 </div>
             </div>
+            @endif
             <div class="opacity-60 text-left text-neutral-600 text-[14px] font-normal">
                 {{$article->title}}
             </div>
@@ -40,7 +42,7 @@
             </div>
         </div>
     </div>
-    @if(count($article->section->pages->except(['id', $article->id])->sortByDesc('created')->take(4)))
+    @if($article->section && count($article->section->pages->except(['id', $article->id])->sortByDesc('created')->take(4)))
     <x-lastnews :news="$article->section->pages->except(['id', $article->id])->sortByDesc('created')->take(4)"></x-lastnews>
     @endif
     <x-photogallery></x-photogallery>

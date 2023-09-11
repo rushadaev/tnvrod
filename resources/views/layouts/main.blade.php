@@ -70,7 +70,7 @@
         <div class="mt-4 grid menu grid-flow-row xl:grid-flow-col">
             <a href="/" class="@if(Route::currentRouteName() == 'home')active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Новости</a>
             <a href="/about" class="@if(Str::of(Route::currentRouteName())->contains('about'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">О движении</a>
-            <a href="/youth" class="@if(Str::of(Route::currentRouteName()) == 'youth.index')active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Молодежное отделение</a>
+            <a href="/page/youth" class="@if(Str::of(Route::currentRouteName()) == 'youth.index')active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Молодежное отделение</a>
             <a href="/structure" class="@if(Str::of(Route::currentRouteName())->contains('structure'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Cтруктура</a>
             <a href="/documents" class="@if(Str::of(Route::currentRouteName())->contains('documents'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Документы</a>
             <a href="/media" class="@if(Str::of(Route::currentRouteName())->contains('media'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Медиа</a>

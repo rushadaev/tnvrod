@@ -6,11 +6,40 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Section;
+use Blade;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function getSectionSlugged(Section $section, Request $request){
+
+        $render_ready = str_replace(
+            '\=\&gt;', '=>', $section->body,
+        );
+        $render_ready = str_replace('=&gt;', '=>', $render_ready);
+        $output = Blade::render($render_ready,
+            ['section' => $section]);
+        return $output;
+    }
+    public function getPageSlugged(Section $section, Page $page, Request $request){
+        $output = Blade::render(str_replace(
+            '\=\&gt;', '=>', $page->body,
+        ),
+            ['page' => $page]);
+        return $output;
+    }
+    public function getPageSluggedNoCategory(Page $page, Request $request){
+        $render_ready = str_replace(
+            '\=\&gt;', '=>', $page->body,
+        );
+        $render_ready = str_replace('=&gt;', '=>', $render_ready);
+
+        $output = Blade::render($render_ready,
+            ['page' => $page]);
+        return $output;
+    }
+
     public function getArticle(Article $article){
         return view('articles.article', ['article' => $article]);
     }
