@@ -13,6 +13,7 @@ class Category extends Component
      */
     public function __construct(
         public $pages = [],
+        public $custom = [],
     )
     {
         //

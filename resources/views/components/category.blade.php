@@ -8,4 +8,13 @@
         </a>
     </div>
     @endforeach
+    @foreach($custom as $page)
+        <div class="max-h-[99.08px] w-full h-full relative">
+            <a href="{{$page['link']}}" >
+                <div class="bg-zinc-100 hover:bg-blue-500  hover:text-white px-5 pt-5 pb-3 min-h-[90px] text-zinc-700 text-[14px] font-medium leading-tight">
+                    {{substr($page['title'], 0, 300)}}{{strlen($page['title']) >= 300 ? '...' : ''}}
+                </div>
+            </a>
+        </div>
+    @endforeach
 </div>
