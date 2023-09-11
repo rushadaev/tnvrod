@@ -31,15 +31,29 @@
         <div class="relative grid grid-flow-col">
             <div class="block">
                 <div class="text-zinc-700 text-[35px] font-black uppercase mb-10">{{$article->title}}</div>
-                <div class="max-w-[809px] relative">
-                    <div class="max-w-[805px] relative text-justify text-gray-700 text-[16px] font-normal leading-normal">
+                <div class="w-full relative">
+                    <div class="w-full relative text-justify text-gray-700 text-[16px] font-normal leading-normal">
                         {!! $article->body !!}
+                        <div class="container w-full mx-auto px-0 flex flex-col justify-between h-full">
+                            @if(count($article['image']) > 0)
+                                <div class="grid lg:grid-flow-col grid-flow-row gap-5 items-center justify-between">
+                                    <div class="grid lg:grid-cols-3 grid-cols-1 gap-5 items-center justify-between w-full">
+                                        @foreach($article['image'] as $media)
+                                            <div class="max-w-[360px] h-full min-h-[337px] bg-cover bg-center grid grid-rows-[200px_minmax(100px,_1fr)]">
+                                                <div class="h-full max-h-[200px] bg-[#c1c1c1]">
+                                                    <img class="relative object-cover object-top w-full h-full" src="/storage/{{$media}}" />
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <x-photogallery></x-photogallery>
 
 @endsection

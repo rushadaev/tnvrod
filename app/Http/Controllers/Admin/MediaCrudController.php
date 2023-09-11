@@ -81,7 +81,7 @@ class MediaCrudController extends CrudController
         CRUD::field('title');
         CRUD::field('body')->type('summernote');
         CRUD::field('image')
-            ->type('upload')
+            ->type('upload_multiple')
             ->withFiles([
                 'disk' => 'public', // the disk where file will be stored
                 'path' => 'media', // the path inside the disk where file will be stored

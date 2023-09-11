@@ -30,6 +30,9 @@ class Media extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function getImageAttribute($data){
+        return collect(json_decode($data));
+    }
 
     /*
     |--------------------------------------------------------------------------

@@ -5,7 +5,7 @@
                 @foreach($media as $article)
                     <a href="/media/{{$article['id']}}" class="max-w-[360px] h-full min-h-[337px] bg-cover bg-center grid grid-rows-[200px_minmax(100px,_1fr)]">
                         <div class="h-full max-h-[200px] bg-[#c1c1c1]">
-                            <img class="relative object-cover object-top w-full h-full" src="/storage/{{$article['image']}}" />
+                            <img class="relative object-cover object-top w-full h-full" src="/storage/{{$article['image'][0]}}" />
                         </div>
                         <div class="p-4 bg-white h-full border-rounded flex flex-col min-h-[200px] justify-between">
                             <h2 class="text-[18px] text-[#4F525F]">{{$article['title']}}</h2>
