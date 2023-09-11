@@ -2,22 +2,25 @@
 <div class="flex flex-col items-start md:flex-row justify-start md:items-center mb-10">
     <div class="mr-4 h-[18px] w-[18px] md:h-[66px] md:w-[55px]">
         <div class="relative grid justify-center items-center h-full">
-
-            @if($file['type'] == 'yandex')
-                <img class="absolute top-0 left-0 hidden md:block" src="/images/youth/icons/file.svg">
-                <img class="relative" src="/images{{$file['icon']}}">
-            @else
-                <img class="absolute top-0 left-0" src="/images/youth/icons/file.svg">
-                @if($file['type'] == 'custom')
-                    @if($file['icon'] == 'PDF')
-                        <div class="relative text-[#F44254] text-[8px] md:text-[18px]">{{$file['icon']}}</div>
-                    @elseif($file['icon'] == 'ZIP')
-                        <div class="relative text-[#C10013] text-[8px] md:text-[18px]">{{$file['icon']}}</div>
-                    @else
-                        <div class="relative text-[#4884F1] text-[8px] md:text-[18px]">{{$file['icon']}}</div>
+            @if(1 == 2)
+                @if($file['type'] == 'yandex')
+                    <img class="absolute top-0 left-0 hidden md:block" src="/images/youth/icons/file.svg">
+                    <img class="relative" src="/images{{$file['icon']}}">
+                @else
+                    <img class="absolute top-0 left-0" src="/images/youth/icons/file.svg">
+                    @if($file['type'] == 'custom')
+                        @if($file['icon'] == 'PDF')
+                            <div class="relative text-[#F44254] text-[8px] md:text-[18px]">{{$file['icon']}}</div>
+                        @elseif($file['icon'] == 'ZIP')
+                            <div class="relative text-[#C10013] text-[8px] md:text-[18px]">{{$file['icon']}}</div>
+                        @else
+                            <div class="relative text-[#4884F1] text-[8px] md:text-[18px]">{{$file['icon']}}</div>
+                        @endif
                     @endif
                 @endif
             @endif
+            <img class="absolute top-0 left-0 hidden md:block" src="/images/youth/icons/file.svg">
+            <img class="relative" src="/images/download.svg">
         </div>
     </div>
     <div class="grid grid-rows-auto gap-1 w-full">
