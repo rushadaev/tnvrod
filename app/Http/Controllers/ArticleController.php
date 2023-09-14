@@ -23,13 +23,18 @@ class ArticleController extends Controller
         return $output;
     }
     public function getPageSlugged(Section $section, Page $page, Request $request){
-        $render_ready = str_replace(
-            '\=\&gt;', '=>', $page->body,
-        );
-        $render_ready = str_replace('=&gt;', '=>', $render_ready);
-        $output = Blade::render($render_ready,
-            ['page' => $page]);
-        return $output;
+        if($page->body && strlen($page->body) > 0) {
+            $render_ready = str_replace(
+                '\=\&gt;', '=>', $page->body,
+            );
+            $render_ready = str_replace('=&gt;', '=>', $render_ready);
+            $output = Blade::render($render_ready,
+                ['page' => $page]);
+            return $output;
+        }
+        else{
+            return view('layouts.page', ['page' => $page]);
+        }
     }
     public function getPageSluggedNoCategory(Page $page, Request $request){
         $render_ready = str_replace(
