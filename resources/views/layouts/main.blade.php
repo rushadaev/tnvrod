@@ -1,117 +1,135 @@
-@extends('layouts.main')
-@section('title', 'Республиканское общественное движение "Татарстан - новый век" - О движении - Хартия Земли')
-@section('content')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="w-full relative mx-auto flex-col justify-start items-start gap-2.5 inline-flex">
-        <div class="relative z-10 p-20 w-full grid justify-center items-center min-h-[574px]">
-            <div class="text-center text-zinc-700 text-[56px] font-black uppercase tracking-widest">Хартия земли</div>
-            <div class="max-w-[805px] text-center text-gray-700 text-[18px] font-normal leading-loose">Идея Хартии Земли появилась в 1987 году, когда Международная комиссия по окружающей среде и развитию ООН призвала создать новую хартию, которая сформулировала бы фундаментальные принципы устойчивого развития. В 1994 году Морис Стронг и Михаил Горбачёв, через организации, которые каждый из них основал (Совет Земли   и Международный Зелёный Крест), повторно запустили Хартию Земли как инициативу гражданского общества. Заключительный вариант текста Хартии Земли был принят   на собрании Комиссии Хартии Земли в штабе ЮНЕСКО, в марте 2000 г.</div>
-        </div>
-        <div class="w-full h-full absolute z-0">
-            <img class="w-full h-full left-0 top-0 absolute object-cover" src="/images/hartiyazemli/bg.png">
+    <title>@yield('title')</title>
 
-        </div>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    </div>
-
-    <div class="max-w-[1220px] min-h-[389px] mx-auto grid grid-flow-row md:grid-flow-col gap-10 mt-[80px]">
-        <div class="w-full h-full relative grid grid-flow-row">
-            <div class="max-w-[380px] w-full max-h-[260px] h-full ">
-                <div class="w-full h-full justify-center flex items-center px-5 text-center bg-zinc-100 text-gray-700 text-[16px] font-normal leading-snug">
-                    "Очень важно, что Хартия Земли ориентируется не только на решение экологических проблем, но и закрепляет важнейшие социальные ценности – культуру мира, согласие и социальную справедливость."
+    @vite('resources/css/app.css')
+</head>
+<body>
+@if(App\Models\Page::where('slug', 'header')->first())
+    {!! CustomHelper::bladeRenderer(App\Models\Page::where('slug', 'header')->first()->body) !!}
+@else
+<header class="bg-[#F4F2F2] min-h-200px pt-4 h-full">
+    <div class="container max-w-[1250px] mx-auto px-4 flex flex-col justify-between h-full">
+        <div class="flex items-center justify-between w-full h-full">
+            <div class="flex items-center lg:flex-row flex-col justify-between w-full">
+                <div class="flex lg:flex-row flex-col items-center ">
+                    <a href="/">
+                        <img src="/images/logo.png" alt="" class="h-20 w-20">
+                    </a>
+                    <h1 class="text-dark-blue text-25px ml-4 text-center lg:text-left font-bold w-auto uppercase mt-4 lg:mt-0">
+                        Республиканское общественное движение<br/>
+                        «Татарстан — новый век» — «Татарстан — яңа гасыр»
+                    </h1>
                 </div>
-                <img class="w-[95px] h-[95px] left-[143px] top-[212px] absolute rounded-full" src="/images/hartiyazemli/1.png">
-                <div class="relative mt-[60px]">
-                    <div class="text-center text-gray-700 text-[16px] font-bold leading-normal">Минтимир Шаймиев</div>
-                    <div class="text-center text-gray-700 text-[14px] font-normal leading-tight">Первый Президент<br>Республики Татарстан</div>
+                <div class="flex mt-4 lg:mt-0">
+                    <form action="/search">
+                        <div id="searchbar" class="fixed hidden bg-[#424653] w-full h-[200px] left-0 top-0">
+                            <div class="flex rounded justify-center items-center ml-2 h-full">
+                                <div class="relative w-full max-w-[800px] ">
+                                    <form method="get" action="/search" >
+                                        <input placeholder="Поиск по сайту..." class="border-b-2 w-full pl-[30px] outline-none text-white h-[40px] text-[16px] font-thin border-white bg-transparent" name="query" />
+                                    </form>
+                                    <div class="absolute top-[10px] left-0">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8.5" cy="8.5" r="7.65" stroke="white" stroke-width="1.7"/>
+                                            <path d="M19 19L14 14" stroke="white" stroke-width="1.7"/>
+                                        </svg>
+                                    </div>
+                                    <div onclick="document.getElementById('searchbar').classList.add('hidden')" class="absolute right-[10px] top-[10px] cursor-pointer">
+                                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.5977 11.5996L1.19766 1.19961" stroke="white" stroke-width="1.7"/>
+                                            <path d="M11.5977 1.19922L1.19766 11.5992" stroke="white" stroke-width="1.7"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div onclick="document.getElementById('searchbar').classList.remove('hidden')" class="flex cursor-pointer rounded justify-center items-center ml-2">
+                            <span class="w-14 h-14 flex justify-center items-center bg-F4F2F2 border border-round-rounded search-container">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8.5" cy="8.5" r="7.65" stroke="black" stroke-width="1.7"/>
+                                <path d="M19 19L14 14" stroke="black" stroke-width="1.7"/>
+                                </svg>
+                            </span>
+                    </div>
+                    <a href="mailto:tnvrod@yandex.ru">
+                       <button class="text-white bg-blue-500 ml-2 h-14 w-44 uppercase">
+                        Задать вопрос</button>
+                    </a>
                 </div>
             </div>
         </div>
+        <div class="mt-4 grid menu grid-flow-row xl:grid-flow-col">
+            <a href="/" class="@if(Route::currentRouteName() == 'home')active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Новости</a>
+            <a href="/about" class="@if(Str::of(Route::currentRouteName())->contains('about'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">О движении</a>
+            <a href="/page/youth" class="@if(Str::of(Route::currentRouteName()) == 'youth.index')active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Молодежное отделение</a>
+            <a href="/structure" class="@if(Str::of(Route::currentRouteName())->contains('structure'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Cтруктура</a>
+            <a href="/documents" class="@if(Str::of(Route::currentRouteName())->contains('documents'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Документы</a>
+            <a href="/media" class="@if(Str::of(Route::currentRouteName())->contains('media'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Медиа</a>
+            <a href="/publications" class="@if(Str::of(Route::currentRouteName())->contains('publications'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Наши издания</a>
+            <a href="/sections/grants" class="@if(Str::of(Route::currentRouteName())->contains('grants'))active @endif leading-2 px-3 py-2 hover:bg-gray-700 hover:text-white uppercase border-transparent">Гранты и конкурсы</a>
+        </div>
+    </div>
+</header>
+@endif
+<main class="min-h-[500px]">
+    @yield('content')
+</main>
 
-        <div class="w-full h-full mt-[120px] md:mt-0 relative grid grid-flow-row">
-            <div class="max-w-[380px] w-full max-h-[260px] h-full ">
-                <div class="w-full h-full justify-center flex items-center px-5 text-center bg-zinc-100 text-gray-700 text-[16px] font-normal leading-snug">
-                    "Хартия Земли – документ, обращённый к планете Земля.Для того, чтобы человек смогсберечь себя и открыть дорогу многим и многим поколениям,он должен сберечь Землю."
-                </div>
-                <img class="w-[95px] h-[95px] left-[143px] top-[212px] absolute rounded-full" src="/images/hartiyazemli/2.png">
-                <div class="relative mt-[60px]">
-                    <div class="text-center text-gray-700 text-[16px] font-bold leading-normal">Михаил Горбачев</div>
-                    <div class="text-center text-gray-700 text-[14px] font-normal leading-tight">Первый президент СССР</div>
-                </div>
+<footer class="bg-[#424653] ">
+    <div class="container max-w-[1250px] mt-20 min-h-[320px] mx-auto px-4 flex flex-col justify-between items-center">
+        @if(App\Models\Page::where('slug', 'footer')->first())
+            {!! App\Models\Page::where('slug', 'footer')->first()->body !!}
+        @else
+        <div class="flex lg:flex-row flex-col items-center lg:items-start pt-10 justify-between w-full h-full">
+            <div class="flex items-center">
+                <img src="/images/logo_white.png" alt="" class="h-[54px] w-[54px]">
+                <h3 class="text-white text-[14px] ml-4 font-bold w-auto uppercase">
+                    Республиканское общественное движение<br/>
+                    «Татарстан — новый век» — «Татарстан — яңа гасыр»
+                </h3>
+            </div>
+            <div class="flex mt-5 lg:mt-0">
+                <p class="text-white text-[15px]">
+                    Адрес: 420111, г. Казань, ул. Лобачевского, д.10<br/>
+                    Телефон: (843) 264-69-38<br/>
+                    Факс: (843) 264-69-39<br/>
+                    E-Mail: tnvrod@yandex.ru
+                </p>
+            </div>
+            <div class="flex mt-5 lg:mt-0">
+                <a href="mailto:tnvrod@yandex.ru">
+                <button class="text-white bg-blue-500 ml-2 h-14 w-44 uppercase">
+                    Задать вопрос
+                </button>
+                </a>
             </div>
         </div>
-
-        <div class="w-full h-full mt-[160px] md:mt-0 mb-[220px] md:mb-0 relative grid grid-flow-row">
-            <div class="max-w-[380px] w-full max-h-[260px] h-full ">
-                <div class="w-full h-full justify-center flex items-center px-5 text-center bg-zinc-100 text-gray-700 text-[16px] font-normal leading-snug">
-                    "Хартия Земли в Республике Татарстан просто обречена на успех."
-                </div>
-                <img class="w-[95px] h-[95px] left-[143px] top-[212px] absolute rounded-full" src="/images/hartiyazemli/3.png">
-                <div class="relative mt-[60px]">
-                    <div class="text-center text-gray-700 text-[16px] font-bold leading-normal">Фарид Мухаметшин</div>
-                    <div class="text-center text-gray-700 text-[14px] font-normal leading-tight">Председатель Государственного Совета<br>Республики Татарстан</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="max-w-[1220px] mx-auto w-full h-full px-5 py-10 md:px-[94px] md:py-[57px] bg-blue-500 mt-[60px]">
-        <div class="text-center text-white text-[18px] font-normal leading-relaxed">«Мы вступили в критический момент истории Земли, когда человечество должно выбрать своё будущее.   Наш мир становится всё более взаимозависимым и хрупким, а будущее таит в себе одновременно и большую опасность, и большую надежду. Чтобы развиваться далее, мы должны осознать, что при огромном разнообразии культур и форм жизни, мы являемся одной семьёй и единым мировым сообществом с общей судьбой.    Мы должны объединиться и создать устойчивое глобальное общество, основанное на уважении к природе, правам человека, экономической справедливости и культуре мира. В этом стремлении крайне необходимо, чтобы мы, народы Земли, провозгласили нашу ответственность друг перед другом, перед великим сообществом всего живого, и перед будущими поколениями.»</div>
-    </div>
-
-    <div class="max-w-[1220px] mx-auto w-full h-full px-5 py-10 md:px-[94px] md:py-[57px] mt-[10px]">
-        <div class="text-center text-zinc-700 text-[24px] md:text-[35px] font-black uppercase tracking-widest">4 столпа и 16 принципов Хартии Земли</div>
-        <div class="text-center text-zinc-700 text-[16px] md:text-[20px] font-semibold uppercase tracking-wider">61 вспомогательный принцип и заключение, озаглавленный «Путь вперед»</div>
-    </div>
-
-    <div class="max-w-[1220px] mx-auto w-full h-full grid grid-cols-1 grid-rows-6 md:grid-rows-2 md:grid-cols-4 gap-4">
-        <div class="relative h-full md:col-span-2 col-span-1 max-h-[300px] cursor-pointer md:max-h-[1000px]">
-            <img class="w-full h-full object-cover" src="/images/hartiyazemli/grid_1.png">
-            <div class="absolute bottom-5 left-5 text-white text-[21px] font-black uppercase tracking-wider">Дальнейший путь</div>
-        </div>
-        <div class="relative md:row-span-2 row-span-1 w-full h-full max-h-[300px] cursor-pointer md:max-h-[1000px]">
-            <img class="w-full h-full object-cover" src="/images/hartiyazemli/grid_2.png">
-            <div class="absolute bottom-5 left-5 text-white text-[21px] font-black uppercase tracking-wider">ii. экологическая целостность</div>
-        </div>
-        <div class="relative w-full h-full max-h-[300px] cursor-pointer md:max-h-[1000px]">
-            <img class="w-full h-full object-cover" src="/images/hartiyazemli/grid_3.png">
-            <div class="absolute bottom-5 left-5 text-white text-[21px] font-black uppercase tracking-wider">iii. социальная  и экономическая справедливость</div>
-        </div>
-        <div class="relative w-full h-full max-h-[300px] cursor-pointer md:max-h-[1000px]">
-            <img class="w-full h-full object-cover" src="/images/hartiyazemli/grid_4.png">
-            <div class="absolute bottom-5 left-5 text-white text-[21px] font-black uppercase tracking-wider">история создания</div>
-        </div>
-        <div class="relative w-full h-full max-h-[300px] cursor-pointer md:max-h-[1000px]">
-            <img class="w-full h-full object-cover" src="/images/hartiyazemli/grid_5.png">
-            <div class="absolute bottom-5 left-5 text-white text-[21px] font-black uppercase tracking-wider">i. уважение живого сообщества земли и забота о нем</div>
-        </div>
-        <div class="relative w-full h-full max-h-[300px] cursor-pointer md:max-h-[1000px]">
-            <img class="w-full h-full object-cover" src="/images/hartiyazemli/grid_6.png">
-            <div class="absolute bottom-5 left-5 text-white text-[21px] font-black uppercase tracking-wider">iv. демократия, ненасилие и мир</div>
-        </div>
-    </div>
-
-    <div class="max-w-[1220px] mx-auto w-full h-full px-5 py-10 md:px-[94px] md:py-[57px] mt-[20px]">
-        <div class="max-w-[1014px] w-full h-[0px] border border-zinc-500 mb-10"></div>
-        <div class="relative grid grid-flow-row justify-center items-center text-center">
-            <img class="rounded-full w-full h-full object-contain gap-3" src="/images/hartiyazemli/shaimiev.png">
-            <div class="text-gray-700 text-[18px] font-bold leading-normal">Минтимир Шаймиев</div>
-            <div class="text-gray-700 text-[14px] font-normal leading-tight">Первый Президент<br>Республики Татарстан</div>
-        </div>
-        <div class="grid grid-flow-row md:grid-flow-col text-left gap-[80px] mt-20">
-            <div class="text-justify text-zinc-700 text-[20px] font-normal leading-7">Земля – это святое для жизнедеятельности. Она требует к себе особого внимания и защиты. Очень важно, что Хартия Земли ориентируется не только на решение экологических проблем, но и закрепляет важнейшие социальные ценности – культуру мира, согласие и социальную справедливость.<br><br>В течение последних лет в Республике Татарстан успешно реализуются масштабные программы по экологическому образованию и формированию экономического механизма природопользования.<br><br>В Республике Татарстан создан Государственный реестр особо охраняемых природных территорий, впервые в России составлена и издана Карта экологической ситуации, опубликованы Красная и Зелёная книги Республики Татарстан, разработана и реализуется государственная программа "Чистая вода".<br><br>Положительный опыт Татарстана по достоинству оценён международными организациями. Татарстан начал эксперимент по реализации принципов Хартии Земли (планеты) – документа, выработанного специалистами многих стран мира под эгидой ООН и призванного сформировать новый подход к общечеловеческим ценностям с учётом требований охраны окружающей среды.<br><br>Надеюсь, Хартия Земли будет играть консолидирующую роль для всех народов мира в деле сохранения биосферы и гармоничного развития нашей планеты.</div>
-            <div class="text-justify text-blue-500 text-[20px] font-normal leading-7">Earth is sacred for life. It requires special attention and protection. Very important is that the Earth Charter not simply seeks the resolution of environmental issues, but also asserts the most important social values: culture of peace, concord and social justice.
-                <br>
-                <br>Over the past few years the Republic of Tatarstan has been successfully implementing the large scale programmes on environmental education and the development of an economic mechanism of environmental management.
-                <br>
-                <br>The Republic of Tatarstan created the State Register of specially protected natural territories; constructed and published, for the first time in Russia, a map of environmental situation in the Republic of Tatarstan; issued the Red and the Green Books of the Republic of Tatarstan; developed and is currently implementing the "Pure Water" state programme.
-                <br>
-                <br>The positive experience of Tatarstan was highly appreciated by international organisations. The republic began the experiment on the application of principles of the Earth (Planet) Charter – a document prepared under the UN aegis by experts from many countries of the world and whose aim is to develop a new approach to universal values with due account for environmental protection requirements.
-                <br>
-                <br>I hope that the Earth Charter will play a consolidating role for all peoples of the world in our common effort to preserve the biosphere and ensure the harmonious development of our planet.
+        @endif
+        @php
+        $images = \App\Models\Partner::select(['image', 'body'])->get();
+        @endphp
+        <div class="flex items-center justify-center border-t w-full h-full mt-5 pt-4 pb-4">
+            <div class="flex flex-wrap gap-5 items-center justify-between w-full max-w-[700px] h-full">
+                @foreach($images as $image)
+                    <a target="_blank" href="{{$image->body}}">
+                        <img src="/storage/{{$image->image}}" alt="">
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>
-
-@endsection
+</footer>
+</body>
+</html>
