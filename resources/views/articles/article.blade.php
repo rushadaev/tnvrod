@@ -44,6 +44,11 @@
                         }
                     @endphp
                     <div class="max-w-[805px] relative text-justify text-gray-700 text-[16px] font-normal leading-normal">
+                        @if($imgsrc)
+                        <div class="w-full mb-10">
+                            <img class="object-cover max-h-[570px]" src="{{$imgsrc}}" />
+                        </div>
+                        @endif
                         {!! CustomHelper::shortenString($article->introtext) !!}
                         {!! $article->fulltext !!}
                     </div>
