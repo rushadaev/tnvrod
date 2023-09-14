@@ -29,7 +29,6 @@ class ArticleController extends Controller
                 '\=\&gt;', '=>', $page->body,
             );
             $render_ready = str_replace('=&gt;', '=>', $render_ready);
-            $render_ready = str_replace(' ', '', $render_ready);
             $output = Blade::render($render_ready,
                 ['page' => $page]);
             return $output;
