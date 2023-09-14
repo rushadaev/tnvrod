@@ -23,7 +23,8 @@ class ArticleController extends Controller
         return $output;
     }
     public function getPageSlugged(Section $section, Page $page, Request $request){
-        if($page->body && strlen($page->body) > 0) {
+        //Проверяет есть ли шаблон или нет
+        if(str_replace('<p><br></p>', '', $page->body)) {
             $render_ready = str_replace(
                 '\=\&gt;', '=>', $page->body,
             );
