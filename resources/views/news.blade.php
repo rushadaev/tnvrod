@@ -114,10 +114,26 @@
                     calendarControl.attachEventsOnNextPrev();
                 },
                 displayYear: function () {
+                    // Get the current URL
+                    const url = new URL(window.location.href);
+
+                    // Get the query parameters
+                    const params = new URLSearchParams(url.search);
+                    if(params.get('year')){
+                        calendar.setFullYear(params.get('year'))
+                    }
                     let yearLabel = document.querySelector(".calendar .calendar-year-label");
                     yearLabel.innerHTML = calendar.getFullYear();
                 },
                 displayMonth: function () {
+                    // Get the current URL
+                    const url = new URL(window.location.href);
+
+                    // Get the query parameters
+                    const params = new URLSearchParams(url.search);
+                    if(params.get('month')){
+                        calendar.setMonth(params.get('month')-1)
+                    }
                     let monthLabel = document.querySelector(
                         ".calendar .calendar-month-label"
                     );
@@ -229,19 +245,21 @@
                     // Get the query parameters
                     const params = new URLSearchParams(url.search);
 
-
+                    let newDay = params.get('day');
+                    let newMonth = params.get('month');
+                    let newYear = params.get('year');
+                    if(newDay){
+                        document
+                            .querySelectorAll(".number-item")
+                            [newDay - 1].classList.add("calendar-today");
+                    }
                     if (
                         currentYear === changedYear &&
                         currentMonth === changedMonth &&
                         document.querySelectorAll(".number-item")
                     ) {
 
-                        let newDay = params.get('day');
-                        if(newDay){
-                            document
-                                .querySelectorAll(".number-item")
-                                [newDay - 1].classList.add("calendar-today");
-                        }
+
                         document
                             .querySelectorAll(".number-item")
                             [calendar.getDate() - 1].classList.add("calendar-today");

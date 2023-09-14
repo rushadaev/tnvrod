@@ -2,8 +2,18 @@
 
 namespace App\Helpers;
 
+use Blade;
+
 class CustomHelper
 {
+    public static function bladeRenderer($body){
+        $render_ready = str_replace(
+            '\=\&gt;', '=>', $body,
+        );
+        $render_ready = str_replace('=&gt;', '=>', $render_ready);
+        $output = Blade::render($render_ready);
+        return $output;
+    }
     public static function shortenString($string, $limit = 468) {
         // Remove HTML tags
         $string = strip_tags($string);

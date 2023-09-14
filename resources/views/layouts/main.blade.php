@@ -15,6 +15,9 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+@if(App\Models\Page::where('slug', 'header')->first())
+    {!! CustomHelper::bladeRenderer(App\Models\Page::where('slug', 'header')->first()->body) !!}
+@else
 <header class="bg-[#F4F2F2] min-h-200px pt-4 h-full">
     <div class="container max-w-[1250px] mx-auto px-4 flex flex-col justify-between h-full">
         <div class="flex items-center justify-between w-full h-full">
@@ -79,12 +82,16 @@
         </div>
     </div>
 </header>
+@endif
 <main class="min-h-[500px]">
     @yield('content')
 </main>
 
 <footer class="bg-[#424653] ">
     <div class="container max-w-[1250px] mt-20 min-h-[320px] mx-auto px-4 flex flex-col justify-between items-center">
+        @if(App\Models\Page::where('slug', 'footer')->first())
+            {!! App\Models\Page::where('slug', 'footer')->first()->body !!}
+        @else
         <div class="flex lg:flex-row flex-col items-center lg:items-start pt-10 justify-between w-full h-full">
             <div class="flex items-center">
                 <img src="/images/logo_white.png" alt="" class="h-[54px] w-[54px]">
@@ -109,6 +116,7 @@
                 </a>
             </div>
         </div>
+        @endif
         @php
         $images = \App\Models\Partner::select(['image', 'body'])->get();
         @endphp
