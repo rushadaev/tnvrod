@@ -120,8 +120,8 @@
         @php
         $images = \App\Models\Partner::select(['image', 'body'])->get();
         @endphp
-        <div class="grid grid-cols-4 p-5 items-center justify-center border-t w-full h-full mt-5 pt-4 pb-4">
-            <div class="flex flex-wrap gap-5 items-center justify-between w-full max-w-[700px] h-full">
+        <div class="flex items-center justify-center border-t w-full h-full mt-5 pt-4 pb-4">
+            <div class="grid grid-cols-4 gap-5 items-center justify-between w-full max-w-[700px] h-full">
                 @foreach($images as $image)
                     <a target="_blank" href="{{$image->body}}">
                         <img src="/storage/{{$image->image}}" alt="">
