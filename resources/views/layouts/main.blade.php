@@ -131,5 +131,25 @@
         </div>
     </div>
 </footer>
+<script>
+
+    // Get the current URL
+    var url = window.location.href;
+
+    // Generate a unique value, e.g. the current timestamp
+    var timestamp = new Date().getTime();
+
+    // Add the timestamp as a query string to the URL
+    if (url.indexOf('?') > -1){
+        url += '&cache_=' + timestamp;
+    } else {
+        url += '?cache_=' + timestamp;
+    }
+    if(!url.indexOf('cache_=') == -1){
+    // Redirect to the new URL
+        window.location.href = url;
+    }
+
+</script>
 </body>
 </html>

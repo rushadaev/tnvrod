@@ -62,9 +62,9 @@ class ArticleCrudController extends CrudController
     {
         CRUD::setValidation(ArticleRequest::class);
 
-        CRUD::field('title')->label('Заголовок');;
-        CRUD::field('alias')->label('Алиас*');;
-        CRUD::field('category')->label('Категория');;
+        CRUD::field('title')->label('Заголовок');
+        CRUD::field('alias')->label('Алиас*');
+        CRUD::field('category')->label('Категория');
         CRUD::field('introtext')->type('summernote')->label('Короткое описание');;
         CRUD::field('fulltext')->type('summernote')->label('Полное описание');;
 

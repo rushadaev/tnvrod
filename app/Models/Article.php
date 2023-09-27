@@ -31,6 +31,7 @@ class Article extends Model
             $model->xreference = '{}';
             $model->language = '{}';
             $model->hits = '0';
+            $model->introtext = '';
         });
     }
 
