@@ -15,11 +15,11 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-<form action="/search">
 @if(App\Models\Page::where('slug', 'header')->first())
+    <form action="/search">
     {!! CustomHelper::bladeRenderer(App\Models\Page::where('slug', 'header')->first()->body) !!}
+    </form>
 @else
-</form>
 <header class="bg-[#F4F2F2] min-h-200px pt-4 h-full">
     <div class="container max-w-[1250px] mx-auto px-4 flex flex-col justify-between h-full">
         <div class="flex items-center justify-between w-full h-full">
