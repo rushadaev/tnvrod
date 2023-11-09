@@ -15,9 +15,11 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+<form action="/search">
 @if(App\Models\Page::where('slug', 'header')->first())
     {!! CustomHelper::bladeRenderer(App\Models\Page::where('slug', 'header')->first()->body) !!}
 @else
+</form>
 <header class="bg-[#F4F2F2] min-h-200px pt-4 h-full">
     <div class="container max-w-[1250px] mx-auto px-4 flex flex-col justify-between h-full">
         <div class="flex items-center justify-between w-full h-full">
@@ -32,7 +34,6 @@
                     </h1>
                 </div>
                 <div class="flex mt-4 lg:mt-0">
-                    <div>
                         <div id="searchbar" class="fixed hidden bg-[#424653] w-full h-[200px] left-0 top-0">
                             <div class="flex rounded justify-center items-center ml-2 h-full">
                                 <div class="relative w-full max-w-[800px] ">
