@@ -20,7 +20,7 @@
                 <div class="max-h-[280px] h-full">
                 <img src="{{$imgsrc}}" alt="Image description" class="w-full object-contain object-top h-[382px] object-cover">
                 </div>
-                <div class="bg-[#4884F1] p-4 grid grid-flow-row">
+                <div class="bg-[#4884F1] p-4 grid grid-flow-row h-full">
                     <div class="text-white">
                         <span class="text-[16px]">{{$article->publish_up}}</span>
                     </div>
