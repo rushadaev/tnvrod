@@ -32,7 +32,7 @@
                     </h1>
                 </div>
                 <div class="flex mt-4 lg:mt-0">
-                    <form action="/search">
+                    <div>
                         <div id="searchbar" class="fixed hidden bg-[#424653] w-full h-[200px] left-0 top-0">
                             <div class="flex rounded justify-center items-center ml-2 h-full">
                                 <div class="relative w-full max-w-[800px] ">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                     <div onclick="document.getElementById('searchbar').classList.remove('hidden')" class="flex cursor-pointer rounded justify-center items-center ml-2">
                             <span class="w-14 h-14 flex justify-center items-center bg-F4F2F2 border border-round-rounded search-container">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
