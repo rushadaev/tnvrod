@@ -39,7 +39,7 @@
         <div class="w-full flex cursor-pointer justify-center md:justify-end">
             <div class="w-full mt-5 max-w-[425px] h-[75px] relative">
                 <div class="w-full h-[75px] left-[0] top-[0] relative bg-blue-500 rounded"></div>
-                <div class="w-full absolute top-0 left-0 h-full flex justify-center items-center text-center text-white text-[18px] font-bold uppercase">следующая страница</div>
+                <a href="{{$articles->nextPageUrl()}}" class="w-full absolute top-0 left-0 h-full flex justify-center items-center text-center text-white text-[18px] font-bold uppercase">следующая страница</a>
                 <div class="origin-top-left w-[18.37px] h-[10px] right-[30px] top-[28px] absolute">
                     <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line y1="-1" x2="13.5771" y2="-1" transform="matrix(0.736474 -0.676465 0.736474 0.676465 2 19)" stroke="white" stroke-width="2"/>
@@ -139,6 +139,30 @@
                     );
                     monthLabel.innerHTML = calendarControl.calMonthName[calendar.getMonth()];
                 },
+                updateQueryParams: function () {
+                // Assuming input.calendar-today-date is the ID of your input field
+                let inputElement = document.querySelector('input.calendar-today-date');
+
+                // Get the value from the input field
+                let inputValue = inputElement.value;
+
+                // Parse the input value to extract year, month, and day
+                let selectedDate = new Date(inputValue);
+                let selectedYear = selectedDate.getFullYear();
+                let selectedMonth = selectedDate.getMonth() + 1; // JavaScript months are 0-indexed
+                let selectedDay = selectedDate.getDate();
+
+                // Create a URLSearchParams object
+                let queryParams = new URLSearchParams();
+
+                // Set the query parameters based on the selected date
+                queryParams.set('day', selectedDay);
+                queryParams.set('month', selectedMonth);
+                queryParams.set('year', selectedYear);
+
+                // Update the URL with the new query string
+                window.location.search = queryParams.toString();
+            },
                 selectDate: function (e) {
                     window.location.href = `/news?day=${e.target.textContent}&month=${calendar.getMonth()+1}&year=${calendar.getFullYear()}`;
                     console.log(
@@ -147,6 +171,27 @@
                         } ${calendar.getFullYear()}`
                     );
                 },
+                 getCurrentDate: function() {
+                     // Get the query parameters from the URL
+                     let queryParams = new URLSearchParams(window.location.search);
+
+                     // Get the values for day, month, and year from the query parameters
+                     let day = queryParams.get('day');
+                     let month = queryParams.get('month');
+                     let year = queryParams.get('year');
+
+                     // Check if all necessary parameters are present
+                     if (day && month && year) {
+                         // Create a date object based on the query parameters
+                         let currentDate = new Date(year, month - 1, day);
+
+                         // Format the date as a string (adjust the format as needed)
+                         let formattedDate = currentDate.toISOString().slice(0, 10);
+
+                         return formattedDate;
+                     }
+                     return null;
+            },
                 plotSelectors: function () {
                     document.querySelector(
                         ".calendar"
@@ -159,12 +204,7 @@
           </div>
           <div class="calendar-next"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><path fill="#666" d="M38.8 124.2l52.4-52.42L99 64l-7.77-7.78-52.4-52.4-9.8 7.77L81.44 64 29 116.42z"/></svg></a></div>
           </div>
-          <div class="calendar-today-date">Сегодня:
-            ${calendarControl.calWeekDays[calendarControl.localDate.getDay()]},
-            ${calendarControl.localDate.getDate()},
-            ${calendarControl.calMonthName[calendarControl.localDate.getMonth()]}
-            ${calendarControl.localDate.getFullYear()}
-          </div>
+<input class="calendar-today-date d-flex" value="${calendarControl.getCurrentDate()}" type="date" />
           <div class="calendar-body"></div></div>`;
                 },
                 plotDayNames: function () {
@@ -216,16 +256,14 @@
                     let prevBtn = document.querySelector(".calendar .calendar-prev a");
                     let nextBtn = document.querySelector(".calendar .calendar-next a");
                     let todayDate = document.querySelector(".calendar .calendar-today-date");
+
                     let dateNumber = document.querySelectorAll(".calendar .dateNumber");
                     prevBtn.addEventListener(
                         "click",
                         calendarControl.navigateToPreviousMonth
                     );
                     nextBtn.addEventListener("click", calendarControl.navigateToNextMonth);
-                    todayDate.addEventListener(
-                        "click",
-                        calendarControl.navigateToCurrentMonth
-                    );
+                    todayDate.addEventListener("change", calendarControl.updateQueryParams);
                     for (var i = 0; i < dateNumber.length; i++) {
                         dateNumber[i].addEventListener(
                             "click",
@@ -304,6 +342,7 @@
                     calendarControl.plotSelectors();
                     calendarControl.plotDates();
                     calendarControl.attachEvents();
+                    document.querySelector(".calendar .calendar-today-date").addEventListener("change", calendarControl.updateQueryParams);
                 }
             };
             calendarControl.init();

@@ -116,12 +116,12 @@
 }
 
 .calendar .calendar-inner .calendar-today-date {
-    display: grid;
+    display: flex;
     text-align: center;
     cursor: pointer;
     margin: 3px 0px;
     background: var(--calendar-current-date-color);
-    padding: 8px 0px;
+    padding: 8px 16px;
     border-radius: 10px;
     width: 80%;
     margin: auto;
